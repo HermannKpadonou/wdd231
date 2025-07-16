@@ -1,1 +1,74 @@
-<!-- This is an HTML comment -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD231 || Hermann M. KPADONOU</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/filtered_courses.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <img src="images/marques-de-griffes.svg" alt="site logo" width="512" height="512">
+        <span>WDD231 || Hermann M. KPADONOU</span>
+        <button id="ham-btn" class="hamburger" aria-label="navigation menu"></button>
+    </header>
+    <nav id="nav-bar" class="navigation">
+      <ul>
+          <li class="current"><a href="#">Home</a></li>
+          <li ><a href="#">Chamber Projects</a></li>
+          <li><a href="#">Final Projects</a></li>
+      </ul>
+    </nav>
+    <main>
+        <h1 class="page-title">Home</h1>
+        <section class="about-me">
+            <div class="about-me-text">
+                <h2>About Me</h2>
+                <p class="indent">Hello! My name is Hermann KPADONOU, a technician in electronic and computer systems. 
+                Passionate about new technologies, I work in a fintech as IT support, managing platform maintenance and incident reporting. 
+                My dream is to become a web developer or software engineer to undertake projects in agriculture and education.</p>
+                <p class="indent">I am married and a father of a daughter. 
+                We live in Aboisso, Côte d’Ivoire. 
+                I enjoy playing the piano, cooking, volunteering, and agriculture. Sociable
+                and optimistic, I am driven by my goals and vision.
+                Excited to join you on this adventure.</p>
+            </div>
+            <div class="my-pic">    
+                <img src="images/hermann.jpeg" alt="my-pic" width= "150" height= "210">
+            </div>
+        </section>
+
+        <section>
+          <h2>Web Certificates Courses</h2>
+          <div class="filters">
+              <button id="all">All</button>
+              <button id="cse">CSE</button>
+              <button id="wdd">WDD</button>
+          </div>
+          <div id="course-grid"></div>
+          <p>The total credits for course listed above is <span id="total-credits">0</span></p>
+        </section>
+    </main>
+    <footer>
+        <div class="social">
+            <a href="" target="_blank"><img src="images/linkedin.svg" alt="Linkedin" width="16" height="16"></a>
+             <a href="" target="_blank"><img src="images/github.svg" alt="Github" width="16" height="16"></a>
+            <a href="" target="_blank"><img src="images/twitter-x.svg" alt="Twitter X" width="16" height="16"></a>
+        </div>
+        <div>
+            <p><strong>&copy;<span id="currentYear">2024</span>🎖️|Hermann M. KPADONOU|🎖️Aboisso,CIV</strong></p>
+            <p><strong>Last Modified: <span id="lastModified"></span></strong></p>
+        </div>
+    </footer>
+</body>
+</html>

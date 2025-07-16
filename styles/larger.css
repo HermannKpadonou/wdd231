@@ -1,0 +1,69 @@
+@media (min-width: 768px) {
+
+    /* ********************* HEADER & NAV ********************* */
+    header {
+        border-bottom: none; 
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navigation {
+        display: block;
+        background-color: var(--secondary-color); 
+    }
+
+    .navigation ul {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navigation a {
+        border: none;
+    }
+
+    .navigation li.current a {
+        background-color: var(--primary-color); 
+        color: var(--text-light);
+    }
+
+    /* ********************* MAIN ********************* */
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* --- Section "About Me" --- */
+    .about-me {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        border: none;
+        gap: 1.5rem; 
+    }
+
+    .about-me-text {
+        border: 1px solid var(--border-color);
+    }
+
+    .my-pic {
+        border: 1px solid var(--border-color);
+        border-top: 1px solid var(--border-color); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* --- Section courses --- */
+    #course-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
