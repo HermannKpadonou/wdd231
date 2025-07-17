@@ -1,11 +1,12 @@
 /* --------------- BASE STYLES (Mobile First) --------------- */
 :root {
-    --primary-color: #F9A972;      /* Orange Peach */
-    --secondary-color: #74CBA9;    /* Emerald Green */
-    --light-bg: #f9f9f9;           /* Very light gray for backgrounds */
-    --border-color: #e0e0e0;       /* Light border color */
-    --text-light: #ffffff;         /* Text on dark/colored backgrounds */
-    --text-dark: #212121;          /* Text on light backgrounds */
+    --primary-color: #2C3E50;      
+    --secondary-color: #D9534F;    
+    --light-bg: #F8F9FA;           
+    --border-color: #E9ECEF;      
+    --text-light: #ffffff;         
+    --text-dark: #212529;         
+    --footer-bg: #34495E;
 }
 
 body {
