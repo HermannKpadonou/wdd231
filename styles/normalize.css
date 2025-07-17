@@ -1,13 +1,11 @@
-/* --------------- BASE STYLES --------------- */
-
+/* --------------- BASE STYLES (Mobile First) --------------- */
 :root {
-    --primary-color: #F9A972;      
-    --secondary-color: #009E60;  
-    --footer-color: rgb(148, 145, 145);
-    --light-bg: #f5f5f5;          
-    --border-color: #cccccc;      
-    --text-light: #ffffff;        
-    --text-dark: #212121;         
+    --primary-color: #F9A972;      /* Orange Peach */
+    --secondary-color: #74CBA9;    /* Emerald Green */
+    --light-bg: #f9f9f9;           /* Very light gray for backgrounds */
+    --border-color: #e0e0e0;       /* Light border color */
+    --text-light: #ffffff;         /* Text on dark/colored backgrounds */
+    --text-dark: #212121;          /* Text on light backgrounds */
 }
 
 body {
@@ -18,11 +16,18 @@ body {
 /* ********************* HEADER ********************* */
 header {
     display: grid;
-    grid-template-columns: 70px auto 1fr;
+    grid-template-columns: 60px auto 1fr;
     align-items: center;
     padding: 10px;
-    border-bottom: 2px solid var(--primary-color); 
     gap: 10px;
+}
+
+
+
+.site-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color); /* Title in Green */
 }
 
 header img {
@@ -31,178 +36,181 @@ header img {
 }
 
 header span {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--primary-color); 
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--secondary-color); /* Title in Green */
 }
 
 .hamburger {
     justify-self: end;
-    font-size: 2em;
+    font-size: 2.2em;
     background: none;
     border: none;
-    color: var(--primary-color); 
+    color: var(--secondary-color);
     cursor: pointer;
 }
-
 .hamburger::before { content: "\2630"; }
 .hamburger.show::before { content: "\00D7"; }
 
-
 /* ********************* NAVIGATION ********************* */
-.navigation {
-    display: none;
-}
-.navigation.show {
-    display: block;
-}
+.navigation { display: none; }
+.navigation.show { display: block; }
+
 .navigation ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .navigation a {
     display: block;
     padding: 1rem;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: var(--text-dark);
-    background-color: var(--secondary-color); 
-    border-bottom: 1px solid var(--border-color); 
+    font-weight: 600;
+    color: var(--text-light);
+    background-color: var(--secondary-color); /* Green nav bar */
+    border-bottom: 1px solid #007a4a;
 }
+
 .navigation a:hover {
-    background-color: var(--primary-color); 
-    color: var(--text-light);
-
+    background-color: var(--primary-color); /* Orange on hover */
 }
+
 .navigation li.current a {
-    background-color: var(--primary-color); 
-    color: var(--text-light);
+    background-color: var(--primary-color);
+    border-bottom-color: #d68f5a;
 }
-
 
 /* ********************* MAIN ********************* */
 main {
     padding: 1rem;
 }
 
-.page-title {
+main h1{
     font-size: 2em;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--light-bg);
-    margin-bottom: 1rem;
-    color: var(--primary-color); 
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
 }
 
-/* --- Section About Me --- */
-.about-me h2,
-section h2 {
-    background-color: var(--primary-color);
-    font-weight: bold;
-    color: var(--text-light);
-    padding: 10px 15px;
-    font-size: 1.2em;
-    margin: 0 -1rem 0 -1rem;
-}
-
-.about-me {
-    border: 1px solid var(--border-color);
+main > h2, .page-title {
+    font-size: 2em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-bg);
     margin-bottom: 1.5rem;
 }
 
-.about-me-text {
-    background-color: var(--light-bg);
-    padding: 15px;
+/* --- Cards "About Me" & "Photo" --- */
+.about-card, .photo-card {
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden; 
 }
 
-.about-me-text h2 {
-    margin: -15px -15px 15px -15px;
+.photo-card h2{
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 12px 15px;
+    margin: 0;
 }
 
-.about-me-text p {
-    line-height: 1.6;
-    margin-bottom: 1em;
+.about-card h2 {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 12px 15px;
+    margin: 0;
 }
 
-.my-pic {
+.about-card .card-body {
     background-color: var(--light-bg);
     padding: 20px;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
+    line-height: 1.6;
 }
 
-.my-pic img {
-    border: 3px solid white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    max-width: 100%;
-    height: auto;
+.photo-card img{
+    background-color: var(--light-bg);
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-/* --- Section Courses --- */
-section h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-    border-bottom: 1px solid var(--border-color);
+
+
+/* --- Courses Section --- */
+section > h2 {
+    background-color: var(--secondary-color); 
+    color: var(--text-light);
+    font-size: 1.2em;
     font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-bottom: none;
 }
+
 .filters {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
 .filters button {
     flex-grow: 1;
-    padding: 15px;
-    font-weight: bold;
-    border: 1px solid var(--primary-color);
-    background-color: var(--secondary-color); 
-    color: var(--text-dark);
-    cursor: pointer;
+    padding: 12px;
+    font-weight: 600;
     border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    background-color: #fff;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.filters button:hover {
+.filters button:hover, .filters button.active-filter {
     background-color: var(--primary-color);
     color: var(--text-light);
 }
 
 #course-grid > div {
     background-color: var(--light-bg);
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 #course-grid .completed {
-    background-color: #FAD3A7;
+    background-color: #74CBA9;
     font-weight: bold;
     color: var(--text-light);
-}
-
-.not-completed{
-    background-color: var(--primary-color);
-    font-weight: bold;
 }
 
 
 /* ********************* FOOTER ********************* */
 footer {
-    background-color: var(--footer-color); 
-    padding: 1rem;
+    background-color: rgb(198, 196, 196); /* Dark gray footer for a professional look */
+    padding: 1.5rem 1rem;
     text-align: center;
-    color: var(--text-light); 
+    color: #ccc;
     font-size: 0.9em;
 }
 
-footer p strong { 
-    color: var(--text-light);
-}
-
+footer p { margin: 0.5rem 0; }
+footer p strong { color: #fff; }
 
 .social {
     display: flex;
@@ -213,23 +221,23 @@ footer p strong {
 .social img {
     width: 32px;
     height: 32px;
-    background-color: white; 
+    background-color: white;
     border-radius: 50%;
     padding: 4px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 .social img:hover {
     transform: scale(1.1);
 }
 
 
-    /* ********************* MEDIA QUERY ********************* */
-
 @media (min-width: 768px) {
 
     /* ********************* HEADER & NAV ********************* */
     header {
-        border-bottom: none; 
+        max-width: 1200px;
+        margin: 0 auto;
+        border-bottom: none;
     }
 
     .hamburger {
@@ -238,7 +246,7 @@ footer p strong {
 
     .navigation {
         display: block;
-        background-color: var(--secondary-color); 
+        background-color: var(--secondary-color);
     }
 
     .navigation ul {
@@ -251,44 +259,31 @@ footer p strong {
         border: none;
     }
 
-    .navigation li.current a {
-        background-color: var(--primary-color); 
-        color: var(--text-light);
-    }
-
     /* ********************* MAIN ********************* */
     main {
         max-width: 1200px;
         margin: 0 auto;
     }
-
-    .page-title {
-        margin-left: 0;
-        margin-right: 0;
-    }
     
-    /* --- Section "About Me" --- */
-    .about-me {
+    /* --- "About Me" Grid --- */
+    .about-grid {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        border: none;
-        gap: 1.5rem; 
+        gap: 1.5rem;
     }
 
-    .about-me-text {
-        border: 1px solid var(--border-color);
+    .about-card, .photo-card {
+        margin-bottom: 0;
     }
-
-    .my-pic {
-        border: 1px solid var(--border-color);
-        border-top: 1px solid var(--border-color); 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    /* --- Section courses --- */
+   
+    /* --- Courses Grid --- */
     #course-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .filters {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
