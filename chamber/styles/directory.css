@@ -23,6 +23,15 @@ h1{
     color: var(--border-color);
     font-weight: bold;
     text-align: center;
+   
+}
+
+.members {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    color: var(--page-bg);
+    font-weight: bold;
+    text-align: center;
     background-color: var(--accent-color);
     padding: 1rem;
     border-radius: 8px;
