@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "name": "Orange Ivory Coast",
+      "address": "Boulevard Valéry Giscard d'Estaing, Marcory, Abidjan, Ivory Coast",
+      "phone": "+225 27 21 23 10 10",
+      "website": "https://www.orange.ci",
+      "image": "orange_ci.png",
+      "membershipLevel": 3,
+      "industry": "Telecommunications",
+      "description": "Leading telecommunications operator in Ivory Coast, offering mobile, internet, and mobile payment (Orange Money) services."
+    },
+    {
+      "name": "MTN Ivory Coast",
+      "address": "12, Rue des Dragees, Plateau, 01 BP 3865 Abidjan 01, Ivory Coast",
+      "phone": "+225 27 20 31 71 00",
+      "website": "https://www.mtn.ci",
+      "image": "mtn_ci.png",
+      "membershipLevel": 3,
+      "industry": "Telecommunications",
+      "description": "Major telecommunications operator, providing mobile, data, and fintech (MoMo) solutions."
+    },
+    {
+      "name": "Ivorian Electricity Company (CIE)",
+      "address": "1, Avenue Christiani, Treichville, 01 BP 6923 Abidjan 01, Ivory Coast",
+      "phone": "+225 27 21 23 33 30",
+      "website": "https://www.cie.ci",
+      "image": "cie.png",
+      "membershipLevel": 3,
+      "industry": "Energy",
+      "description": "Company in charge of the production, transmission, and distribution of electrical energy in Ivory Coast."
+    },
+    {
+      "name": "NSIA Bank Ivory Coast",
+      "address": "8-10 Avenue Joseph Anoma, Plateau, 01 BP 1274 Abidjan 01, Ivory Coast",
+      "phone": "+225 27 20 20 04 00",
+      "website": "https://nsiabanque.ci",
+      "image": "nsia_banque.jpg",
+      "membershipLevel": 2,
+      "industry": "Banking & Insurance",
+      "description": "Financial group offering banking and insurance services to individuals and businesses."
+    },
+    {
+      "name": "SOLIBRA (African Soft Drink and Brewery Company)",
+      "address": "Zone Industrielle de Vridi, 35 Rue des Brasseurs, 01 BP 1304 Abidjan 01, Ivory Coast",
+      "phone": "+225 27 21 21 18 00",
+      "website": "https://www.solibra.ci",
+      "image": "solibra_logo.png",
+      "membershipLevel": 2,
+      "industry": "Agribusiness / Beverages",
+      "description": "Leader in the production and distribution of beers and soft drinks in Ivory Coast."
+    },
+    {
+      "name": "SAPH (African Rubber Plantation Company)",
+      "address": "20, Avenue du Dr. Crozet, Plateau, 01 BP 1322 Abidjan 01, Ivory Coast",
+      "phone": "+225 27 20 31 51 51",
+      "website": "https://www.saph.ci",
+      "image": "saph_logo.png",
+      "membershipLevel": 2,
+      "industry": "Agriculture / Agribusiness",
+      "description": "Leading producer of natural rubber in Ivory Coast, a subsidiary of the SIFCA group."
+    },
+    {
+      "name": "JUMIA Ivory Coast",
+      "address": "Rue du Chevalier de Clieu, Zone 4C, Marcory, Abidjan, Ivory Coast",
+      "phone": "+225 27 21 21 02 10",
+      "website": "https://www.jumia.ci",
+      "image": "jumia_ci.png",
+      "membershipLevel": 1,
+      "industry": "E-commerce",
+      "description": "Leading e-commerce platform in Ivory Coast, offering a wide range of products and services."
+    }
+  ]
+}

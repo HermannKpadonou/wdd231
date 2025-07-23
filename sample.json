@@ -1,0 +1,22 @@
+{
+"family name": "KPADONOU",
+"move-in-date": "2025-07-16",
+"number-of-people": 3,
+"visit-bishop" : true,
+"family-members": [
+    {"name": "Hermann",
+    "gender": "male",
+    "birthaday": "1991-09-24"
+    },
+    {
+    "name": "Benedicite",
+    "gender": "female",
+    "birthaday": "1996-01-01"
+    },
+    {
+    "name": "Elyora",
+    "gender": "female",
+    "birthaday": "2020-07-18"
+ }
+]
+}

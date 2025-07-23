@@ -195,7 +195,7 @@ section > h2 {
 }
 
 #course-grid .completed {
-    background-color: #74CBA9;
+    background-color: #5D7387;
     font-weight: bold;
     color: var(--text-light);
 }
@@ -262,7 +262,7 @@ footer p strong { color: #fff; }
 
     /* ********************* MAIN ********************* */
     main {
-        max-width: 1200px;
+        min-width: 1200px;
         margin: 0 auto;
     }
     
