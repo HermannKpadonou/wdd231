@@ -1,0 +1,74 @@
+/* --- Style global pour la page --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; /* Un gris très clair pour le fond */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    min-height: 100vh; /* Assure que le body prend toute la hauteur de l'écran */
+    margin: 0;
+}
+
+/* --- Titre principal --- */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* --- Conteneur principal (la "carte" météo) --- */
+main {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de profondeur */
+    text-align: center;
+    max-width: 400px;
+    width: 90%; /* Pour la responsivité sur petits écrans */
+}
+
+/* --- Paragraphe contenant la température --- */
+p {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* --- La valeur de la température --- */
+#current-temp {
+    font-weight: bold;
+    color: #007bff; /* Un bleu pour la température */
+}
+
+/* --- Conteneur pour l'icône et sa description --- */
+figure {
+    margin: 0; /* Réinitialise les marges par défaut */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- L'icône météo --- */
+#weather-icon {
+    background-color: #e9ecef; /* Un fond léger pour l'icône */
+    border-radius: 50%; /* La rend circulaire */
+}
+
+/* --- Description sous l'icône --- */
+figcaption {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* --- Pied de page --- */
+footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #777;
+    text-align: center;
+}
