@@ -140,3 +140,30 @@ function displayCourses(filteredCourses) {
 if (courseGrid) {
     displayCourses(courses);
 }
+
+
+// --- Modal View ---
+
+const courseDetailsDialog = document.querySelector("#course-details");
+const closeButton = document.querySelector("#close-btn");
+closeButton.addEventListener("click", () => {
+    courseDetailsDialog.close();
+});
+const courseTitle = document.querySelector("#course-title");
+const courseDescription = document.querySelector("#course-description");
+const courseCredit = document.querySelector("#course-credits");
+courseGrid.addEventListener("click", (event) => {
+    if (event.target.classList.contains("course-card")) {
+        const courseText = event.target.textContent;
+        const [subject, number] = courseText.split(" ");
+        const course = courses.find(c => c.subject === subject && c.number == number);
+        
+        if (course) {
+            courseTitle.textContent = `${course.subject} ${course.number}: ${course.title}`;
+            courseDescription.textContent = `Descripiton: ${course.description}`;
+            courseCredit.textContent = `Credits: ${course.credits}`;
+            courseDetailsDialog.showModal();
+        }
+    }
+});
+
