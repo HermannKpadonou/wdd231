@@ -1,58 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us - Hermann M. KPADONOU</title>
-    <meta name="description" content="WDD231 - Web Frontend Development - Chamber Directory">
-    <meta name="author" content="Hermann M KPADONOU">
-
-    <meta property="og:title" content="The Official Local Chamber of Commerce Directory">
-    <meta property="og:description" content="Connect with industry leaders and discover local opportunities in our community.">
-    <meta property="og:image" content="https://hermannkpadonou.github.io/wdd231/chamber/images/drapeau.jpg">
-    <meta property="og:url" content="https://hermannkpadonou.github.io/wdd231/chamber/directory.html">
-    <meta property="og:type" content="website">
-
-    <link rel="icon" href="images/international.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles/directory.css">
-    <link rel="stylesheet" href="styles/join.css">
-
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/getdates.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
-    <script src="scripts/join.js" defer></script>
-
+    <title>Join Us - Abidjan Chamber of Commerce</title>
+    <!-- Assurez-vous que le chemin vers votre fichier CSS principal est correct -->
+    <link rel="stylesheet" href="styles/form.css"> 
+    <link rel="stylesheet" href="styles/join.css"> <!-- Un CSS spécifique pour cette page -->
 </head>
 <body>
-
+    <!-- 
+        Suppose que vous avez un header et un footer standards.
+        Incluez-les ici.
+    -->
     <header>
-        <a href="index.html" class="logo-container">
-            <img src="images/coffret-de-qualite.svg" alt="site logo">
-            <h1><span class="site-title">Abidjan Chamber of Commerce</span></h1>
-        </a>
-
-        <nav id="nav-bar" class="navigation">
-            <ul>
-               <li ><a href="index.html">Home</a></li>
-               <li ><a href="discover.html">Discover</a></li>
-               <li><a href="directory.html">Directory</a></li>
-               <li><a class ="current" href="join.html">Join Us</a></li>
-            </ul>
-        </nav>
-        <button id="ham-btn" class="hamburger" aria-label="navigation menu"></button>
+        <!-- Votre header ici -->
     </header>
-    
-    <main>
 
-        <h2>Join the Abidjan Chamber of Commerce</h2>
-       <div class="join-layout">
-           <div class="join-form">
-              <form action="thankyou.html" method="get" id="joinForm">
-                
+    <main>
+        <h1>Become a Member</h1>
+        <p>Fill out the form below to join our community and unlock exclusive benefits.</p>
+        
+        <div class="join-layout">
+            <!-- Formulaire d'inscription -->
+            <form action="thankyou.html" method="get" id="joinForm">
+                <fieldset>
+                    <legend>Applicant Information</legend>
                     <div class="form-group">
                         <label for="firstname">First Name*</label>
                         <input type="text" id="firstname" name="firstname" required autocomplete="given-name" title="Your first name">
@@ -62,7 +35,7 @@
                         <input type="text" id="lastname" name="lastname" required autocomplete="family-name" title="Your last name">
                     </div>
                     <div class="form-group">
-                        <label for="position">Organization Title</label>
+                        <label for="position">Position/Title</label>
                         <input type="text" id="position" name="position" autocomplete="organization-title" title="Your title or position" pattern="[a-zA-Z\s-]{7,}" placeholder="e.g., Marketing Director">
                     </div>
                     <div class="form-group">
@@ -73,31 +46,37 @@
                         <label for="phone">Mobile Phone*</label>
                         <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Your mobile phone number">
                     </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Business Information</legend>
                     <div class="form-group">
                         <label for="business">Business/Organization Name*</label>
                         <input type="text" id="business" name="business" required autocomplete="organization" title="Your business name">
                     </div>
-                    
-                    <div class="subject-group">
-                        <label for="membership_level">Membership Level:</label>
-                        <select id="membership_level" name="membership_level">
-                            <option value="NP (Non-Profit)">NP (Non-Profit)</option>
-                            <option value="🥉">Bronze</option>
-                            <option value="🥈🥈">Silver</option>
-                            <option value="🥇🥇🥇">Gold</option>
-                        </select>
-                    </div>
-
                     <div class="form-group">
                         <label for="description">Business Description</label>
                         <textarea id="description" name="description" rows="4" title="A brief description of your business"></textarea>
                     </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Membership Level*</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="membership_level" value="np" required> NP (Non-Profit)</label>
+                        <label><input type="radio" name="membership_level" value="bronze"> Bronze</label>
+                        <label><input type="radio" name="membership_level" value="silver"> Silver</label>
+                        <label><input type="radio" name="membership_level" value="gold"> Gold</label>
+                    </div>
+                </fieldset>
+
+                <!-- Champ caché pour l'horodatage -->
                 <input type="hidden" id="formTimestamp" name="form_timestamp">
-                <button type="submit" class="submit-btn">Join Abidjan Chamber</button>
-              </form>
+                
+                <button type="submit" class="submit-button">Join the Chamber</button>
+            </form>
 
-           </div>
-
+            <!-- Cartes des niveaux d'adhésion -->
             <aside class="membership-info">
                 <h2>Membership Tiers</h2>
                 <div class="membership-cards">
@@ -123,8 +102,10 @@
                     </div>
                 </div>
             </aside>
-       </div>
-       <dialog id="np-modal">
+        </div>
+
+        <!-- Modals (Boîtes de dialogue) -->
+        <dialog id="np-modal">
             <button class="close-modal-btn">×</button>
             <h2>Non-Profit Membership Benefits</h2>
             <ul>
@@ -163,29 +144,10 @@
         </dialog>
 
     </main>
-
     <footer>
-        <div class="social">
-            <a href="" target="_blank"><img src="images/facebook.svg" alt="facebook" width="16" height="16"></a>
-             <a href="" target="_blank"><img src="images/linkedin.svg" alt="linkedin" width="16" height="16"></a>
-            <a href="" target="_blank"><img src="images/instagram.svg" alt="instagram" width="16" height="16"></a>
-        </div>
-        
-        <div class="info">
-            <h3>Abidjan Chamber of Commerce</h3>
-            <p><strong>Address:</strong> 123 Business St, Abidjan, Côte d'Ivoire</p>
-            <p><strong>Postal Code:</strong> 01 BP 1234 Abidjan 01</p>
-            <p><strong>Phone:</strong> <a href="tel:+22507000000">+225 07 00 00 00</a></p>
-        </div>
-
-        <div class="Personal">
-            <p><strong>WDD231 - Web Frontend Development</strong></p>
-            <p><strong>BYUI - Hermann KPADONOU</strong></p>
-            <p><strong>&copy;<span id="currentYear">2025</span> Abidjan Chamber of Commerce,CIV</strong></p>
-            <p><strong>Last Modified: <span id="lastModified"></span></strong></p>
-        </div>
-       
+        <!-- Votre footer ici -->
     </footer>
-
+    <!-- Script pour la logique de la page -->
+    <script src="scripts/form.js" defer></script>
 </body>
 </html>
