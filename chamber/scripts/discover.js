@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- PARTIE 1 : GESTION DE LA DERNIÈRE VISITE ---
     const visitMessageElement = document.getElementById('visit-message');
     const lastVisit = localStorage.getItem('lastVisitDate');
     const now = Date.now();
@@ -21,85 +20,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     localStorage.setItem('lastVisitDate', now);
 
-    // --- PARTIE 2 : GESTION DES CARTES DYNAMIQUES ET DU MODAL ---
 
     const gallery = document.querySelector('.discover-gallery');
     const placesURL = 'data/discover.json';
 
-    // --- Éléments du modal (maintenant avec <dialog>) ---
-    const dialog = document.getElementById('details-dialog');
-    const closeButton = dialog.querySelector('.close-btn');
+
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.querySelector('.close-btn');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     const modalAddress = document.getElementById('modal-address');
     const modalPrice = document.getElementById('modal-price');
     const modalTransportation = document.getElementById('modal-transportation');
 
-    // --- Fonctions pour gérer le modal ---
     function openModal(place) {
         modalTitle.textContent = place.name;
         modalDescription.textContent = place.description;
         modalAddress.innerHTML = `<strong>Adresse :</strong> ${place.address}`;
         modalPrice.innerHTML = `<strong>Prix :</strong> ${place.price}`;
         modalTransportation.innerHTML = `<strong>Transport :</strong> ${place.transportation}`;
-
-        // Utilise la méthode native pour afficher le modal
-        dialog.showModal();
+        modalOverlay.classList.remove('modal-hidden');
     }
 
-    // --- Ajout des écouteurs d'événements pour fermer ---
-    // Le clic sur le bouton "X" fermera le dialogue.
-    closeButton.addEventListener('click', () => {
-        dialog.close();
-    });
+    function closeModal() {
+        modalOverlay.classList.add('modal-hidden');
+    }
 
-    // Le clic sur le fond (backdrop) fermera également le dialogue.
-    dialog.addEventListener('click', (event) => {
-        if (event.target === dialog) {
-            dialog.close();
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
         }
     });
-    // NOTE : La touche "Escape" est gérée nativement par le navigateur pour fermer <dialog> !
 
-    // --- Fonction pour afficher les cartes ---
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modalOverlay.classList.contains('modal-hidden')) {
+            closeModal();
+        }
+    });
+
+    function createPlaceCard(place) {
+        const card = document.createElement('section');
+        const title = document.createElement('h2');
+        const figure = document.createElement('figure');
+        const image = document.createElement('img');
+        const address = document.createElement('address');
+        const button = document.createElement('button');
+
+        title.textContent = place.name;
+        image.setAttribute('src', place.image);
+        image.setAttribute('alt', `Image de ${place.name}`);
+        image.setAttribute('loading', 'lazy');
+        address.textContent = place.address;
+
+        button.textContent = 'Learn More';
+        button.className = 'learn-more-btn';
+
+        button.addEventListener('click', () => {
+            openModal(place);
+        });
+
+        figure.appendChild(image);
+        card.appendChild(title);
+        card.appendChild(figure);
+        card.appendChild(address);
+        card.appendChild(button);
+
+        return card;
+    }
+
     function displayPlaces(places) {
         gallery.innerHTML = '';
         places.forEach(place => {
-            const card = document.createElement('section');
-            const title = document.createElement('h2');
-            const figure = document.createElement('figure');
-            const image = document.createElement('img');
-            const address = document.createElement('address');
-            const button = document.createElement('button');
-
-            title.textContent = place.name;
-            image.setAttribute('src', place.image);
-            image.setAttribute('alt', `Image de ${place.name}`);
-            image.setAttribute('loading', 'lazy');
-            address.textContent = place.address;
-
-            button.textContent = 'Learn More';
-            button.className = 'learn-more-btn';
-
-            button.addEventListener('click', () => {
-                openModal(place);
-            });
-
-            figure.appendChild(image);
-            card.appendChild(title);
-            card.appendChild(figure);
-            card.appendChild(address);
-            card.appendChild(button);
-
+            const card = createPlaceCard(place);
             gallery.appendChild(card);
         });
     }
-    
-    // --- Fonction pour récupérer les données ---
+
     async function getPlaces() {
         try {
             const response = await fetch(placesURL);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const data = await response.json();
             displayPlaces(data);
         } catch (error) {

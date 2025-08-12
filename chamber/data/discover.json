@@ -1,0 +1,74 @@
+[
+    {
+      "id": 1,
+      "name": "St. Paul's Cathedral of Abidjan",
+      "description": "An architectural masterpiece by Aldo Spirito, its unique and bold structure evokes an elephant or a pilgrim's cloth. Its immense stained-glass windows depict biblical scenes with an African touch, making it a spiritual and modern symbol of Abidjan.",
+      "address": "Near the Félix Houphouët-Boigny Stadium, Plateau, Abidjan.",
+      "price": "Free (donations appreciated)",
+      "transportation": "Walking, Metered Taxi, Ride-hailing app (Yango, Uber)",
+      "image": "images/cathedral.webp"
+    },
+    {
+      "id": 2,
+      "name": "Plateau District",
+      "description": "The administrative and business heart of Abidjan, nicknamed 'Little Manhattan' for its skyscrapers. It's fascinating to walk around to feel the city's economic pulse and admire the architecture of its iconic towers.",
+      "address": "Plateau, Abidjan.",
+      "price": "Free (to walk around)",
+      "transportation": "SOTRA Bus, Taxi, Ride-hailing app, Water bus",
+      "image": "images/plateau.webp"
+    },
+    {
+      "id": 3,
+      "name": "Alassane Ouattara Bridge (5th Bridge)",
+      "description": "The newest of Abidjan's major bridges, this impressive cable-stayed structure connects Le Plateau to Cocody. Its modern design and night lighting make it a new symbol of the city's development.",
+      "address": "Connects Plateau and Cocody, over the Cocody Bay.",
+      "price": "Free (no toll)",
+      "transportation": "Car, Taxi, Ride-hailing app, Walking",
+      "image": "images/ado.webp"
+    },
+    {
+      "id": 4,
+      "name": "Henri Konan Bédié Bridge (HKB Bridge)",
+      "description": "A major structure and engineering feat, this toll bridge connects Marcory and Cocody. Its unique inclined pylon is a strong visual signature in the Abidjan landscape. The view from the bridge is spectacular.",
+      "address": "Connects Marcory and Cocody.",
+      "price": "Toll for vehicles",
+      "transportation": "Car, Taxi, Ride-hailing app",
+      "image": "images/hkb.webp"
+    },
+    {
+      "id": 5,
+      "name": "Treichville Sports Palace",
+      "description": "The main indoor sports complex in Abidjan, this palace is the temple for indoor sports like basketball and boxing. Recently renovated, it hosts major national and international competitions in an electric atmosphere.",
+      "address": "Avenue 21, Rue 38, Treichville, Abidjan.",
+      "price": "Paid access during events",
+      "transportation": "Taxi, Ride-hailing app, SOTRA Bus",
+      "image": "images/sport.webp"
+    },
+    {
+      "id": 6,
+      "name": "Abidjan Exhibition Center",
+      "description": "An ultra-modern complex designed to host international fairs and mega-concerts. Its impressive architecture makes it a new hub for economic and event-based attraction for the city.",
+      "address": "Airport Road, Port-Bouët.",
+      "price": "Paid access during exhibitions and events",
+      "transportation": "Car, Ride-hailing app, Taxi",
+      "image": "images/parc.webp"
+    },
+    {
+      "id": 7,
+      "name": "Félix Houphouët-Boigny Stadium ('The Félicia')",
+      "description": "The historic stadium of Abidjan, located in the heart of Le Plateau. Affectionately nicknamed 'Le Félicia,' it has been the scene of countless glorious moments in Ivorian football. It remains a strong symbol of the country's sporting history.",
+      "address": "Le Plateau, Abidjan.",
+      "price": "Paid access during matches",
+      "transportation": "Taxi, Ride-hailing app, Walking",
+      "image": "images/felicia.webp"
+    },
+    {
+      "id": 8,
+      "name": "Bernard Binlin-Dadié Palace of Culture",
+      "description": "Located on the edge of the lagoon, this complex is the main hub of artistic and cultural life in Abidjan. Its raw concrete architecture is bold. It is the venue for major concerts, plays, and shows.",
+      "address": "Boulevard De Gaulle, Treichville, Abidjan.",
+      "price": "Paid access for shows",
+      "transportation": "Taxi, Ride-hailing app, SOTRA Bus",
+      "image": "images/palais.webp"
+    }
+]

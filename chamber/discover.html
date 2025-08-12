@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="styles/discover.css">
     <link rel="stylesheet" href="styles/directory.css">
 
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/getdates.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/discover.js" defer></script>
 
 </head>
 <body>
@@ -35,24 +37,61 @@
 
         <nav id="nav-bar" class="navigation">
             <ul>
-               <li ><a href="index.html">Home</a></li>
-               <li ><a href="discover.html">Discover</a></li>
-               <li><a class="current" href="directory.html">Directory</a></li>
+               <li><a href="index.html">Home</a></li>
+               <li><a class="current" href="discover.html">Discover</a></li>
+               <li><a href="directory.html">Directory</a></li>
                <li><a href="join.html">Join Us</a></li>
             </ul>
         </nav>
         <button id="ham-btn" class="hamburger" aria-label="navigation menu"></button>
     </header>
     
-    <main>
-       
+    <main class="discover-main-grid">
+        <div class="discover-sidebar">
+            <h2>Visit Information</h2>
+            <div class="visit-stats">
+                <h3>Last Visit</h3>
+                <p id="visit-message"></p>
+            </div>
+            <div class="demographics">
+                <h3>Regional Facts</h3>
+                <ul>
+                    <li><strong>Population:</strong> ~6.3 Million (Metro)</li>
+                    <li><strong>Main Language:</strong> French</li>
+                    <li><strong>Key Industries:</strong> Port, Agri-business, Finance, Tech</li>
+                    <li><strong>Climate:</strong> Tropical wet and dry</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="discover-gallery">
+     
+        </div>
     </main>
+
+    
+    <div id="modal-overlay" class="modal-hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body">
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <h3 class="modal-section-header">Détails</h3>
+                <div class="modal-details">
+                    <div id="modal-address" class="modal-detail-item"></div>
+                    <div id="modal-price" class="modal-detail-item"></div>
+                    <div id="modal-transportation" class="modal-detail-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 
     <footer>
         <div class="social">
-            <a href="" target="_blank"><img src="images/facebook.svg" alt="facebook" width="16" height="16"></a>
-             <a href="" target="_blank"><img src="images/linkedin.svg" alt="linkedin" width="16" height="16"></a>
-            <a href="" target="_blank"><img src="images/instagram.svg" alt="instagram" width="16" height="16"></a>
+            <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="facebook" width="16" height="16"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="images/linkedin.svg" alt="linkedin" width="16" height="16"></a>
+            <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="instagram" width="16" height="16"></a>
         </div>
         
         <div class="info">
@@ -65,10 +104,9 @@
         <div class="Personal">
             <p><strong>WDD231 - Web Frontend Development</strong></p>
             <p><strong>BYUI - Hermann KPADONOU</strong></p>
-            <p><strong>&copy;<span id="currentYear">2025</span> Abidjan Chamber of Commerce,CIV</strong></p>
+            <p><strong>&copy;<span id="currentYear"></span> Abidjan Chamber of Commerce,CIV</strong></p>
             <p><strong>Last Modified: <span id="lastModified"></span></strong></p>
         </div>
-       
     </footer>
 
 </body>
