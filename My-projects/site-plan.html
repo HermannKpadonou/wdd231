@@ -1,184 +1,203 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="VOTRE NOM ICI">
-    <meta name="description" content="Plan d'implantation pour le projet de site web Agri-Terroir.">
-    <title>Plan d'Implantation - Agri-Terroir</title>
+    <meta name="author" content="Hermann KPADONOU">
+    <meta name="description" content="Interactive guide to local and heritage crops - Discover, learn and save your favorite agricultural products">
+    <meta name="keywords" content="agriculture, terroir, local crops, seasonal products, gardening, agricultural heritage">
+    <meta property="og:title" content="Agri-Terroir - Guide to Local Crops">
+    <meta property="og:description" content="Discover the treasures of your terroir with our interactive encyclopedia of heritage crops">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta name="theme-color" content="#2E7D32">
     
-    <!-- Liens vers les polices Google Fonts -->
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="styles/site_plan.css" as="style">
+    <link rel="preload" href="images/my_project_mobile.jpg" as="image" media="(max-width: 768px)">
+    <link rel="preload" href="images/my_project.jpg" as="image" media="(min-width: 769px)">
 
-    <!-- CSS interne pour styliser ce document de plan -->
-    <style>
-        /* Définition des variables pour les couleurs et polices choisies */
-        :root {
-            --primary-color: #2E7D32; /* Vert forêt */
-            --secondary-color: #D4A056; /* Bronze/Terre */
-            --background-color: #F5F5F5;
-            --text-color: #333333;
-            --heading-font: 'Merriweather', serif;
-            --body-font: 'Lato', sans-serif;
-        }
+   
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+   
+    <link rel="stylesheet" href="styles/site_plan.css" media="print" onload="this.media='all'">
+    
+    <script src="../scripts/getdate.js" defer></script>
 
-        /* Styles de base appliqués au document */
-        body {
-            font-family: var(--body-font);
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        h1, h2, h3 {
-            font-family: var(--heading-font);
-            color: var(--primary-color);
-        }
-        
-        h1 {
-            text-align: center;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            margin-top: 2rem;
-        }
-
-        p, li {
-            font-size: 1rem;
-        }
-
-        strong {
-            color: var(--primary-color);
-        }
-        
-        /* Styles pour la section Wireframe */
-        .wireframe-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        .wireframe {
-            border: 2px solid #ccc;
-            padding: 15px;
-            background-color: #fafafa;
-            text-align: center;
-        }
-        .wireframe h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: #555;
-        }
-        .wireframe-box {
-            border: 1px dashed #999;
-            background-color: #e9e9e9;
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-        .wireframe-box.header { height: 30px; }
-        .wireframe-box.hero { height: 80px; }
-        .wireframe-box.content { height: 120px; }
-        .wireframe-box.footer { height: 40px; }
-    </style>
+    <title>Site Plan - Agri-Terroir | Guide to Local Crops</title>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <main>
+    <main id="main-content">
         <header>
-            <h1>Plan d'Implantation : Agri-Terroir</h1>
+            <h1>Site Plan: Agri-Terroir</h1>
+            <p class="subtitle">Interactive guide to local and heritage crops</p>
         </header>
 
-        <section>
-            <h2>Nom du site</h2>
-            <p><strong>Nom :</strong> Agri-Terroir</p>
-            <p><strong>Raison :</strong> Ce nom a été choisi car il associe directement "l'agriculture" à la notion de "terroir", ce qui évoque l'authenticité, l'origine et le savoir-faire local. Il est mémorable et communique clairement l'objectif du site.</p>
-        </section>
+        <article>
+            <section aria-labelledby="site-name">
+                <h2 id="site-name">Site Name</h2>
+                <p><strong>Name:</strong> Agri-Terroir</p>
+                <p><strong>Reason:</strong> This name combines "agriculture" with "terroir", evoking authenticity, origin and local know-how. It's memorable, easy to pronounce and clearly communicates the site's purpose. The name is also SEO-optimized with relevant keywords.</p>
+            </section>
 
-        <section>
-            <h2>Objectif du site</h2>
-            <p>Le site Agri-Terroir a pour but de servir de guide interactif et d'encyclopédie pour les cultures maraîchères locales et patrimoniales. Il fournira des fiches techniques détaillées sur les produits, des informations sur leur saisonnalité et leur culture, et permettra aux utilisateurs de sauvegarder leurs cultures préférées. L'objectif final est de valoriser le patrimoine agricole et de reconnecter les consommateurs aux produits de leur terroir.</p>
-        </section>
+            <section aria-labelledby="site-purpose">
+                <h2 id="site-purpose">Site Purpose</h2>
+                <p>Agri-Terroir is a platform aiming to:</p>
+                <ul>
+                    <li>Serve as an interactive guide and encyclopedia for local and heritage crops</li>
+                    <li>Provide detailed technical sheets with scientific and practical data</li>
+                    <li>Highlight product seasonality and sustainable growing techniques</li>
+                    <li>Allow users to create a personalized notebook of favorite crops</li>
+                    <li>Promote agricultural heritage and reconnect consumers with their terroir</li>
+                </ul>
+            </section>
 
-        <section>
-            <h2>Scénarios</h2>
-            <ul>
-                <li>Un jardinier amateur cherche des informations pour savoir quand planter des tomates anciennes et comment en prendre soin.</li>
-                <li>Un consommateur curieux veut découvrir quels légumes-racines sont de saison en automne pour mieux orienter ses achats au marché local.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Schéma de couleurs</h2>
-            <dl>
-                <dt><strong>Couleur Primaire :</strong> <code>#2E7D32</code> (Vert forêt)</dt>
-                <dd>Utilisée pour les titres principaux (h1, h2), les liens et les boutons d'appel à l'action pour attirer l'attention.</dd>
-                <br>
-                <dt><strong>Couleur Secondaire :</strong> <code>#D4A056</code> (Bronze/Terre)</dt>
-                <dd>Utilisée pour les éléments d'accentuation, comme les bordures décoratives ou les icônes, afin de renforcer le thème du terroir.</dd>
-                <br>
-                <dt><strong>Couleur de fond :</strong> <code>#F5F5F5</code> (Gris très clair)</dt>
-                <dd>Utilisée pour le fond général du site afin de garantir une lisibilité maximale et une apparence propre et aérée.</dd>
-                <br>
-                <dt><strong>Couleur du texte :</strong> <code>#333333</code> (Gris foncé)</dt>
-                <dd>Utilisée pour le corps du texte (paragraphes, listes) pour un contraste élevé et une lecture confortable.</dd>
-            </dl>
-        </section>
-
-        <section>
-            <h2>Typographie</h2>
-            <dl>
-                <dt><strong>Merriweather (Serif) :</strong></dt>
-                <dd>Utilisée pour tous les titres (h1, h2, h3). Cette police avec empattements (serif) confère un aspect authentique et éditorial, en lien avec le thème du patrimoine.</dd>
-                <br>
-                <dt><strong>Lato (Sans-serif) :</strong></dt>
-                <dd>Utilisée pour tout le corps du texte (paragraphes, listes, liens). Cette police sans empattements est très lisible sur écran, ce qui la rend idéale pour les descriptions et le contenu informatif.</dd>
-            </dl>
-        </section>
-        
-        <section>
-            <h2>Wireframe (Maquette filaire)</h2>
-            <p>Voici une représentation visuelle simple de la mise en page de la page d'accueil pour les vues mobile et bureau.</p>
-            <div class="wireframe-container">
-                <div class="wireframe" id="mobile-view">
-                    <h3>Vue Mobile</h3>
-                    <div class="wireframe-box header">Logo + Menu Hamburger</div>
-                    <div class="wireframe-box hero">Image Héro + Titre</div>
-                    <div class="wireframe-box content">Section "À la une"<br>(Cartes verticales)</div>
-                    <div class="wireframe-box content">Section "Notre Mission"</div>
-                    <div class="wireframe-box footer">Pied de page</div>
+            <section aria-labelledby="user-scenarios">
+                <h2 id="user-scenarios">User Scenarios</h2>
+                <div class="scenario-grid">
+                    <article class="scenario-card">
+                        <h3>Scenario 1: Amateur Gardener</h3>
+                        <p>Lucy, 35, looks for information to grow heirloom tomatoes:</p>
+                        <ul>
+                            <li>When to plant? (optimal calendar)</li>
+                            <li>How to maintain? (organic techniques)</li>
+                            <li>Which local varieties to choose?</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="scenario-card">
+                        <h3>Scenario 2: Conscious Consumer</h3>
+                        <p>Mark, 42, wants to adapt purchases to seasonality:</p>
+                        <ul>
+                            <li>Which root vegetables are in season in autumn?</li>
+                            <li>Where to find these products locally?</li>
+                            <li>How to store and cook them?</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="scenario-card">
+                        <h3>Scenario 3: Teacher</h3>
+                        <p>Sophie, 50, looks for educational resources:</p>
+                        <ul>
+                            <li>Printable technical sheets for students</li>
+                            <li>Interactive maps of regional crops</li>
+                            <li>History of heritage varieties</li>
+                        </ul>
+                    </article>
                 </div>
-                <div class="wireframe" id="desktop-view">
-                    <h3>Vue Bureau</h3>
-                    <div class="wireframe-box header">Logo + Navigation Horizontale</div>
-                    <div class="wireframe-box hero">Image Héro + Titre</div>
-                    <div class="wireframe-box content">Section "À la une"<br>(Grille de 3 cartes)</div>
-                    <div class="wireframe-box content">Section "Notre Mission"</div>
-                    <div class="wireframe-box footer">Pied de page (plusieurs colonnes)</div>
-                </div>
-            </div>
-        </section>
+            </section>
 
+            <section aria-labelledby="color-scheme">
+                <h2 id="color-scheme">Color Scheme</h2>
+                <div class="color-palette">
+                    <div class="color-card" style="background-color: #2E7D32;">
+                        <span>Primary #2E7D32</span>
+                        <span>Text: #FFFFFF</span>
+                        <p>Used for titles, CTA buttons and interactive elements</p>
+                    </div>
+                    <div class="color-card" style="background-color: #D4A056;">
+                        <span>Secondary #D4A056</span>
+                        <span>Text: #333333</span>
+                        <p>Accents, borders, icons and decorative elements</p>
+                    </div>
+                    <div class="color-card" style="background-color: #F5F5F5;">
+                        <span>Background #F5F5F5</span>
+                        <span>Text: #333333</span>
+                        <p>General background for optimal readability</p>
+                    </div>
+                    <div class="color-card" style="background-color: #333333; color: #FFFFFF;">
+                        <span>Text #333333</span>
+                        <span>Contrast: 15:1</span>
+                        <p>Body text with excellent accessibility</p>
+                    </div>
+                </div>
+                <p class="accessibility-note">All combinations verified with WCAG AA/AAA. Minimum contrast ratio of 4.5:1 for normal text.</p>
+            </section>
+
+            <section aria-labelledby="typography">
+                <h2 id="typography">Typography</h2>
+                <div class="typography-grid">
+                    <article>
+                        <h3 style="font-family: 'Merriweather', serif;">Merriweather (Serif)</h3>
+                        <ul>
+                            <li>Used for all headings (h1-h6)</li>
+                            <li>Base size: 2rem (h1), 1.5rem (h2), 1.2rem (h3)</li>
+                            <li>Weight: 700 (bold) for h1-h3, 400 (regular) for h4-h6</li>
+                            <li>Line height: 1.3</li>
+                        </ul>
+                        <p class="font-sample" style="font-family: 'Merriweather', serif;">Sample text with Merriweather - 1234567890</p>
+                    </article>
+                    
+                    <article>
+                        <h3 style="font-family: 'Lato', sans-serif;">Lato (Sans-serif)</h3>
+                        <ul>
+                            <li>Used for body text, links and interfaces</li>
+                            <li>Base size: 1rem (16px)</li>
+                            <li>Weight: 400 (regular) for text, 700 (bold) for important elements</li>
+                            <li>Line height: 1.6 for comfortable reading</li>
+                        </ul>
+                        <p class="font-sample" style="font-family: 'Lato', sans-serif;">Sample text with Lato - 1234567890</p>
+                    </article>
+                </div>
+                <p class="performance-note">Fonts are loaded via Google Fonts with display=swap to avoid FOIT (Flash of Invisible Text).</p>
+            </section>
+            
+            <section aria-labelledby="wireframes">
+                <h2 id="wireframes">Wireframes</h2>
+                <p>Responsive mockups designed mobile-first with breakpoints at 768px (desktop view ≥ 768px).</p>
+                
+                <div class="wireframe-container">
+                    <figure>
+                        <figcaption>Mobile View 768px</figcaption>
+                        <picture>
+                            <source srcset="images/my_project_mobile.webp" type="image/webp">
+                            <img src="images/my_project_mobile.jpg" alt="Mobile version wireframe" loading="lazy" width="300" height="600">
+                        </picture>
+                        <details>
+                            <summary>Features</summary>
+                            <ul>
+                                <li>Hamburger menu for navigation</li>
+                                <li>Single column content</li>
+                                <li>Touch buttons ≥48px</li>
+                                <li>Adapted typography (size + line spacing)</li>
+                            </ul>
+                        </details>
+                    </figure>
+                    
+                    <figure>
+                        <figcaption>Desktop View (≥768px)</figcaption>
+                        <picture>
+                            <source srcset="images/my_project.webp" type="image/webp">
+                            <img src="images/my_project.jpg" alt="Desktop version wireframe" loading="lazy" width="500" height="400">
+                        </picture>
+                        <details>
+                            <summary>Features</summary>
+                            <ul>
+                                <li>Full horizontal navigation</li>
+                                <li>Multi-column layout</li>
+                                <li>Increased spacing for visual comfort</li>
+                                <li>Hover effects for interactivity</li>
+                            </ul>
+                        </details>
+                    </figure>
+                </div>
+            </section>
+        </article>
     </main>
 
+    <footer>
+       <p><strong>&copy;<span id="currentYear">2024</span>🎖️|Hermann M. KPADONOU|🎖️Aboisso,CIV</strong></p>
+            <p><strong>Last Modified: <span id="lastModified"></span></strong></p>
+    </footer>
 </body>
 </html>
