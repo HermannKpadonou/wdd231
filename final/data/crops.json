@@ -1,0 +1,499 @@
+{
+  "crops": [
+    {
+      "id": "man001",
+      "name": "Cassava",
+      "scientific_name": "Manihot esculenta",
+      "image_url": "images/cassava.jpg",
+      "description": {
+        "general": "Drought-resistant root crop, staple food for 80% of Ivorians. Can remain in soil for 24 months.",
+        "human_health": "High in carbs (35% starch), gluten-free. Contains cyanogenic glycosides requiring proper processing.",
+        "animal_health": "Leaves contain 20-25% protein for livestock feed. Tubers used as energy supplement."
+      },
+      "growing_calendar": {
+        "planting": ["march", "april", "september", "october"],
+        "harvest": ["january", "february", "march", "june", "july", "august"],
+        "optimal_season": "Rainy seasons",
+        "off_season": "Possible with irrigation (yield drops 30%)"
+      },
+      "cultivation_tips": {
+        "soil_type": "Sandy loams (pH 5.5-6.5). Avoid waterlogged soils.",
+        "fertilization": "10-15 tons/ha manure + 400kg NPK 12-12-17",
+        "maintenance": "Weed first 3 months. Rotate with legumes."
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "75-100 FCFA/kg",
+          "off_season": "120-150 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "150-200 FCFA/kg",
+          "off_season": "250-300 FCFA/kg"
+        }
+      },
+      "uses": "Attiéké, gari, tapioca, foufou"
+    },
+    {
+      "id": "ign002",
+      "name": "Yam",
+      "scientific_name": "Dioscorea spp.",
+      "image_url": "images/yam.jpg",
+      "description": {
+        "general": "Symbol of cultural identity. White/Bêtê-bêtê most common. 7-12 month growth cycle.",
+        "human_health": "Rich in potassium (816mg/100g), vitamin C. Low glycemic index.",
+        "animal_health": "Peels used in pig feed (max 15% diet)"
+      },
+      "growing_calendar": {
+        "planting": ["february", "march", "april"],
+        "harvest": ["november", "december", "january"],
+        "optimal_season": "Main rainy season",
+        "off_season": "Not recommended"
+      },
+      "cultivation_tips": {
+        "soil_type": "Deep loams (1m depth). pH 5.5-6.5.",
+        "fertilization": "20 tons/ha manure + 300kg NPK 15-15-15",
+        "maintenance": "Stake vines. Hill up 2-3 times."
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "150-200 FCFA/kg",
+          "off_season": "300-350 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "300-400 FCFA/kg",
+          "off_season": "500-600 FCFA/kg"
+        }
+      },
+      "uses": "Foutou, boiled yam, amala"
+    },
+    {
+      "id": "pla003",
+      "name": "Plantain",
+      "scientific_name": "Musa paradisiaca",
+      "image_url": "images/plantain.jpg",
+      "description": {
+        "general": "Perennial crop yielding 25-50kg/bunch. French horn most popular.",
+        "human_health": "Rich in vitamin A (1,127 IU), potassium. Good for weaning foods.",
+        "animal_health": "Pseudostems as cattle feed (60% moisture)"
+      },
+      "growing_calendar": {
+        "planting": ["march", "april", "may", "june"],
+        "harvest": ["year_round"],
+        "optimal_season": "Humid forest zones",
+        "off_season": "Possible with irrigation"
+      },
+      "cultivation_tips": {
+        "soil_type": "Volcanic loams preferred. pH 6-7.5.",
+        "fertilization": "10kg compost/plant + 200g KCl every 3 months",
+        "maintenance": "Desucker to 3 stems/mat. Mulch heavily."
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "150-200 FCFA/kg",
+          "off_season": "300-400 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "300-400 FCFA/kg",
+          "off_season": "500-700 FCFA/kg"
+        }
+      },
+      "uses": "Alloco, foutou, chips"
+    },
+    {
+      "id": "ric004",
+      "name": "Rice",
+      "scientific_name": "Oryza sativa",
+      "image_url": "images/rice.jpg",
+      "description": {
+        "general": "Grown in savannah (70%) and forest zones. 3-6 month varieties.",
+        "human_health": "Provides 80% daily calories. Brown rice has more fiber.",
+        "animal_health": "Bran contains 12-15% protein for feed"
+      },
+      "growing_calendar": {
+        "planting": ["may", "june", "july"],
+        "harvest": ["september", "october", "november"],
+        "optimal_season": "Rainy season",
+        "off_season": "Irrigated systems possible"
+      },
+      "cultivation_tips": {
+        "soil_type": "Clay loams for water retention",
+        "fertilization": "60kg N/ha + 40kg P₂O₅/ha + 40kg K₂O/ha",
+        "maintenance": "Flooding to 5cm depth for paddies"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "250-300 FCFA/kg",
+          "off_season": "350-400 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "400-500 FCFA/kg",
+          "off_season": "600-700 FCFA/kg"
+        }
+      },
+      "uses": "Plain rice, thieboudienne"
+    },
+    {
+      "id": "mai005",
+      "name": "Maize",
+      "scientific_name": "Zea mays",
+      "image_url": "images/maize.jpg",
+      "description": {
+        "general": "Dual-purpose crop (grain/silage). 90-120 day varieties.",
+        "human_health": "High in lutein/zeaxanthin for eye health",
+        "animal_health": "Whole plant used for silage (35% DM)"
+      },
+      "growing_calendar": {
+        "planting": ["april", "may", "june"],
+        "harvest": ["august", "september", "october"],
+        "optimal_season": "Main rains",
+        "off_season": "Irrigated possible"
+      },
+      "cultivation_tips": {
+        "soil_type": "Well-drained loams",
+        "fertilization": "120kg N/ha + 60kg P₂O₅/ha",
+        "maintenance": "Control fall armyworm"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "180-220 FCFA/kg",
+          "off_season": "280-330 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "350-400 FCFA/kg",
+          "off_season": "450-500 FCFA/kg"
+        }
+      },
+      "uses": "Cornmeal, roasted ears"
+    },
+    {
+      "id": "sor006",
+      "name": "Sorghum",
+      "scientific_name": "Sorghum bicolor",
+      "image_url": "images/sorghum.jpg",
+      "description": {
+        "general": "Drought-resistant cereal. Grown mainly in northern regions.",
+        "human_health": "Gluten-free. Rich in antioxidants.",
+        "animal_health": "Stover makes excellent fodder"
+      },
+      "growing_calendar": {
+        "planting": ["june", "july"],
+        "harvest": ["october", "november"],
+        "optimal_season": "Single rainy season",
+        "off_season": "Not practiced"
+      },
+      "cultivation_tips": {
+        "soil_type": "Tolerates poor soils",
+        "fertilization": "40kg N/ha + 20kg P₂O₅/ha",
+        "maintenance": "Bird control needed"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "150-180 FCFA/kg",
+          "off_season": "220-250 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "300-350 FCFA/kg",
+          "off_season": "400-450 FCFA/kg"
+        }
+      },
+      "uses": "Tô porridge, dolo beer"
+    },
+    {
+      "id": "mil007",
+      "name": "Millet",
+      "scientific_name": "Pennisetum glaucum",
+      "image_url": "images/millet.jpg",
+      "description": {
+        "general": "Ancient grain, thrives in arid conditions",
+        "human_health": "High magnesium content (114mg/100g)",
+        "animal_health": "Whole plant grazed or as hay"
+      },
+      "growing_calendar": {
+        "planting": ["june"],
+        "harvest": ["september"],
+        "optimal_season": "Short rains",
+        "off_season": "Not applicable"
+      },
+      "cultivation_tips": {
+        "soil_type": "Sandy soils acceptable",
+        "fertilization": "Microdosing (6g NPK/hill)",
+        "maintenance": "Minimal requirements"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "200-250 FCFA/kg",
+          "off_season": "300-350 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "400-500 FCFA/kg",
+          "off_season": "550-600 FCFA/kg"
+        }
+      },
+      "uses": "Traditional couscous"
+    },
+    {
+      "id": "gom008",
+      "name": "Okra",
+      "scientific_name": "Abelmoschus esculentus",
+      "image_url": "images/okra.jpg",
+      "description": {
+        "general": "Important vegetable crop. Harvest every 2-3 days.",
+        "human_health": "Mucilage aids digestion. Good folate source.",
+        "animal_health": "Not typically used"
+      },
+      "growing_calendar": {
+        "planting": ["march", "april", "july", "august"],
+        "harvest": ["may", "june", "september", "october"],
+        "optimal_season": "Warm periods",
+        "off_season": "Grown year-round with water"
+      },
+      "cultivation_tips": {
+        "soil_type": "Fertile, well-drained",
+        "fertilization": "20 tons manure/ha + 100kg NPK/ha",
+        "maintenance": "Frequent picking boosts yield"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "200-250 FCFA/kg",
+          "off_season": "350-400 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "400-500 FCFA/kg",
+          "off_season": "600-700 FCFA/kg"
+        }
+      },
+      "uses": "Gombo sauce, fried okra"
+    },
+    {
+      "id": "pim009",
+      "name": "Pepper",
+      "scientific_name": "Capsicum spp.",
+      "image_url": "images/pepper.jpg",
+      "description": {
+        "general": "Includes bell and hot varieties. Important cash crop.",
+        "human_health": "Capsaicin has anti-inflammatory effects",
+        "animal_health": "Limited use due to pungency"
+      },
+      "growing_calendar": {
+        "planting": ["october", "november"],
+        "harvest": ["february", "march", "april"],
+        "optimal_season": "Dry season",
+        "off_season": "Rainy season problematic"
+      },
+      "cultivation_tips": {
+        "soil_type": "Light, organic-rich",
+        "fertilization": "Compost + 150kg NPK 12-24-12/ha",
+        "maintenance": "Staking prevents lodging"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "500-600 FCFA/kg",
+          "off_season": "800-1,000 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "1,000-1,200 FCFA/kg",
+          "off_season": "1,500-2,000 FCFA/kg"
+        }
+      },
+      "uses": "Pepper sauce, spice"
+    },
+    {
+      "id": "tom010",
+      "name": "Tomato",
+      "scientific_name": "Solanum lycopersicum",
+      "image_url": "images/tomato.jpg",
+      "description": {
+        "general": "Grown in all regions. Roma most common for processing.",
+        "human_health": "Lycopene reduces cancer risk",
+        "animal_health": "Rejects used in poultry feed"
+      },
+      "growing_calendar": {
+        "planting": ["october", "november"],
+        "harvest": ["january", "february", "march"],
+        "optimal_season": "Dry season",
+        "off_season": "High disease pressure in rains"
+      },
+      "cultivation_tips": {
+        "soil_type": "Well-drained loams",
+        "fertilization": "30 tons manure/ha + 200kg NPK/ha",
+        "maintenance": "Staking and pruning essential"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "300-400 FCFA/kg",
+          "off_season": "600-800 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "500-700 FCFA/kg",
+          "off_season": "1,000-1,200 FCFA/kg"
+        }
+      },
+      "uses": "Sauces, salads, juice"
+    },
+    {
+      "id": "egg011",
+      "name": "Eggplant",
+      "scientific_name": "Solanum melongena",
+      "image_url": "images/eggplant.jpg",
+      "description": {
+        "general": "Popular in sauces. Tolerant of heat.",
+        "human_health": "Nasunin protects brain cells",
+        "animal_health": "Limited use as feed"
+      },
+      "growing_calendar": {
+        "planting": ["march", "april", "august"],
+        "harvest": ["june", "july", "october", "november"],
+        "optimal_season": "Warm periods",
+        "off_season": "Possible with care"
+      },
+      "cultivation_tips": {
+        "soil_type": "Fertile, well-drained",
+        "fertilization": "20 tons manure/ha + 100kg NPK/ha",
+        "maintenance": "Fruit fly control needed"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "250-300 FCFA/kg",
+          "off_season": "400-500 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "400-600 FCFA/kg",
+          "off_season": "700-900 FCFA/kg"
+        }
+      },
+      "uses": "Stews, grilled"
+    },
+    {
+      "id": "squ012",
+      "name": "Squash",
+      "scientific_name": "Cucurbita spp.",
+      "image_url": "images/squash.jpg",
+      "description": {
+        "general": "Includes pumpkins and gourds. Stores well.",
+        "human_health": "Beta-carotene for eye health",
+        "animal_health": "Leaves as livestock feed"
+      },
+      "growing_calendar": {
+        "planting": ["april", "may"],
+        "harvest": ["august", "september"],
+        "optimal_season": "Rainy season",
+        "off_season": "Limited success"
+      },
+      "cultivation_tips": {
+        "soil_type": "Rich, well-drained",
+        "fertilization": "Compost + 100kg NPK/ha",
+        "maintenance": "Train vines for space"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "150-200 FCFA/kg",
+          "off_season": "250-300 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "300-400 FCFA/kg",
+          "off_season": "500-600 FCFA/kg"
+        }
+      },
+      "uses": "Soups, seeds as snack"
+    },
+    {
+      "id": "gre013",
+      "name": "Leafy Greens",
+      "scientific_name": "Amaranthus spp.",
+      "image_url": "images/greens.jpg",
+      "description": {
+        "general": "Includes amaranth, jute, sorrel. Fast-growing.",
+        "human_health": "Iron and calcium rich",
+        "animal_health": "Excellent fodder crop"
+      },
+      "growing_calendar": {
+        "planting": ["march", "april", "july", "august"],
+        "harvest": ["year_round"],
+        "optimal_season": "Rainy season",
+        "off_season": "Irrigated possible"
+      },
+      "cultivation_tips": {
+        "soil_type": "Most soil types",
+        "fertilization": "Light compost application",
+        "maintenance": "Frequent cutting"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "100-150 FCFA/bunch",
+          "off_season": "200-250 FCFA/bunch"
+        },
+        "retail": {
+          "in_season": "200-300 FCFA/bunch",
+          "off_season": "400-500 FCFA/bunch"
+        }
+      },
+      "uses": "Sauces, soups"
+    },
+    {
+      "id": "swe014",
+      "name": "Sweet Potato",
+      "scientific_name": "Ipomoea batatas",
+      "image_url": "images/sweetpotato.jpg",
+      "description": {
+        "general": "Orange-fleshed varieties vitamin A rich.",
+        "human_health": "Low GI, high fiber",
+        "animal_health": "Vines excellent fodder"
+      },
+      "growing_calendar": {
+        "planting": ["april", "may", "june"],
+        "harvest": ["september", "october", "november"],
+        "optimal_season": "Rainy season",
+        "off_season": "Limited production"
+      },
+      "cultivation_tips": {
+        "soil_type": "Sandy loams best",
+        "fertilization": "Light potassium emphasis",
+        "maintenance": "Vine training"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "100-150 FCFA/kg",
+          "off_season": "200-250 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "250-350 FCFA/kg",
+          "off_season": "400-500 FCFA/kg"
+        }
+      },
+      "uses": "Boiled, fries, flour"
+    },
+    {
+      "id": "gro015",
+      "name": "Groundnut",
+      "scientific_name": "Arachis hypogaea",
+      "image_url": "images/groundnut.jpg",
+      "description": {
+        "general": "Important cash and food crop. Fixes nitrogen.",
+        "human_health": "Healthy fats and protein",
+        "animal_health": "Haulms make quality hay"
+      },
+      "growing_calendar": {
+        "planting": ["may", "june"],
+        "harvest": ["september", "october"],
+        "optimal_season": "Rainy season",
+        "off_season": "Not practiced"
+      },
+      "cultivation_tips": {
+        "soil_type": "Light sandy soils",
+        "fertilization": "Phosphorus emphasis",
+        "maintenance": "Hilling up critical"
+      },
+      "pricing": {
+        "wholesale": {
+          "in_season": "400-500 FCFA/kg",
+          "off_season": "600-700 FCFA/kg"
+        },
+        "retail": {
+          "in_season": "800-1,000 FCFA/kg",
+          "off_season": "1,200-1,500 FCFA/kg"
+        }
+      },
+      "uses": "Peanut butter, snacks"
+    }
+  ]
+}
