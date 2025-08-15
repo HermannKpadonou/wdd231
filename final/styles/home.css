@@ -31,6 +31,7 @@ body {
 h1, h2, h3 {
     font-family: var(--heading-font);
     color: var(--primary-color);
+    text-align: center;
 }
 
 main {
@@ -158,16 +159,56 @@ main {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.mission-section, .featured-crops {
+.mission-section, .seasonal-crops {
     padding: 4rem 2rem;
-    text-align: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.mission-section h2, .featured-crops h2 {
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
     font-size: clamp(1.8rem, 4vw, 2.25rem);
     margin-bottom: 1rem;
+}
+
+.season-indicator {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.season-filters {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e8f5e9;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border-color: var(--primary-color);
 }
 
 .mission-section p {
@@ -210,20 +251,10 @@ main {
     overflow: hidden;
 }
 
-#crops-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    min-height: 200px;
-}
-
-.featured-grid {
+.crops-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 2rem;
 }
 
 .crop-card {
@@ -231,10 +262,9 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .crop-card:hover {
@@ -277,11 +307,6 @@ main {
 
 .crop-card .price-info p {
     margin: 0.25rem 0;
-}
-
-/* Ajouté : Styles pour le bouton More Info */
-.crop-card {
-    position: relative; 
 }
 
 .card-actions {
@@ -381,7 +406,9 @@ main {
     justify-content: center;
 }
 
-
+.modal-content-wrapper {
+    padding: 1rem;
+}
 
 .modal-content {
     background-color: var(--surface-color);
@@ -413,9 +440,8 @@ main {
 
 .modal-content h2 { margin-top: 0; }
 .modal-content p { line-height: 1.7; }
-.modal-content hr { border: 0; border-top: 1px solid #eee; margin: 1rem 0; }
 .modal-image { width: 100%; height: auto; border-radius: 4px; margin-bottom: 1rem; }
-.modal-content ul { list-style: none; padding: 0; }
+.modal-content ul { list-style-position: inside; padding-left: 0; }
 .modal-content li { margin-bottom: 0.5rem; }
 
 
@@ -440,9 +466,8 @@ main {
     .main-navigation ul { flex-direction: column; text-align: center; gap: 2rem; }
     .main-navigation a { font-size: 1.5rem; padding: 0.5rem 2rem; }
     .hero { height: 70vh; }
-    .mission-section, .featured-crops { padding: 2rem 1rem; }
+    .mission-section, .seasonal-crops { padding: 2rem 1rem; }
     .map-section { padding: 2rem 0; }
-    #crops-container, #workshop-map-container { padding: 1rem; }
     #workshop-map-container { width: 100%; border-radius: 0; }
     .site-footer { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
     .footer-column, .footer-social { justify-self: center; text-align: center; }

@@ -5,26 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agri-Terroir - Crops | Guide to Local Crops</title>
     <meta name="description" content="WDD231 - Final Project - Interactive guide to local and heritage crops - Discover, learn and save your favorite agricultural products.">
-    <meta name="keywords" content="agriculture, terroir, local crops, seasonal products, gardening, agricultural heritage">
     <meta name="author" content="Hermann M KPADONOU">
 
-    <meta property="og:title" content="Agri-Terroir - Guide to Local Crops">
-    <meta property="og:description" content="Discover the treasures of your terroir with our interactive encyclopedia of heritage crops.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hermannkpadonou.github.io/wdd231/final/index.html">
-    <meta property="og:image" content="https://hermannkpadonou.github.io/wdd231/final/images/og-image.jpg">
-    <meta property="og:type" content="website">
-
     <link rel="icon" href="images/icon-project.svg">
-    <meta name="theme-color" content="#2E7D32">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
     <link rel="stylesheet" href="styles/home.css">
-
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/getdate.js" defer></script>
-    <script src="scripts/home.js" defer></script>
+    <link rel="stylesheet" href="styles/crops.css">
+    
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/crops.js" defer></script>
+    <script src="scripts/maps.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -36,23 +34,76 @@
         <button id="hamburger" class="hamburger-btn" aria-label="Open navigation menu">&#9776;</button>
         <nav id="main-nav" class="main-navigation">
             <ul>
-                <li><a  href="index.html" >Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a class="current" href="crops.html">Crops</a></li>
                 <li><a href="contact.html">Notebook</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <section class="crops-hero" aria-labelledby="crops-hero-title">
+            <div class="hero-content">
+                <h1 id="crops-hero-title">Local Crops Guide</h1>
+                <p>Discover the agricultural treasures of our terroir</p>
+                <div class="search-container">
+                    <input type="text" placeholder="Search for a crop..." id="crop-search">
+                </div>
+            </div>
+        </section>
+        <section class="crops-directory" aria-labelledby="directory-title">
+            <div class="section-header">
+                <h2 id="directory-title">Crops Catalog</h2>
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="cereals">Cereals</button>
+                    <button class="category-btn" data-category="tubers">Tubers</button>
+                    <button class="category-btn" data-category="vegetables">Vegetables</button>
+                    <button class="category-btn" data-category="fruits">Fruits</button>
+                    <button class="category-btn" data-category="legumes">Legumes</button>
+                </div>
+            </div>
+            <div class="crops-grid" id="all-crops-container">
+                <p class="loading-message">Loading all crops...</p>
+            </div>
+        </section>
+
+        <section class="agricultural-calendar" aria-labelledby="calendar-title">
+            <h2 id="calendar-title">Monthly Agricultural Summary</h2>
+            <div class="calendar-container">
+                <div class="calendar-nav">
+                    <button id="prev-month" aria-label="Previous month">&lt;</button>
+                    <h3 id="calendar-month-year"></h3>
+                    <button id="next-month" aria-label="Next month">&gt;</button>
+                </div>
+                <div class="summary-container">
+                    <div class="summary-column">
+                        <h4>Planting this month</h4>
+                        <ul id="planting-summary"></ul>
+                    </div>
+                    <div class="summary-column">
+                        <h4>Harvesting this month</h4>
+                       <ul id="harvest-summary"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="regional-map" aria-labelledby="map-title">
+            <h2 id="map-title">Regional Discovery Map</h2>
+            <div id="crops-map"></div>
+        </section>
         
+        <div id="crop-modal" class="modal">
+            <div id="modal-content" class="modal-content">
+            </div>
+        </div>
     </main>
     <footer class="site-footer">
         <div class="footer-column footer-left">
             <h3>Contact us</h3>
             <p>
-                <a href="mailto:agriterroir@ivoire.ci">agriterroir@ivoire.ci</a>
-                <br>
-                <a href="tel:+225 01 23 45 67">+225 01 23 45 67</a>
-                <br>
+                <a href="mailto:agriterroir@ivoire.ci">agriterroir@ivoire.ci</a><br>
+                <a href="tel:+225 01 23 45 67">+225 01 23 45 67</a><br>
                 <a href="https://www.google.com/maps/place/Agri-Terroir/Côte+d'Ivoire" target="_blank">123 Agri Street, Abidjan, Côte d'Ivoire</a>
             </p>
         </div>
@@ -70,6 +121,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 import { getCropsData } from './module.mjs';
 import { displayCrops, showModal, closeModal } from './output.mjs';
 
@@ -9,15 +8,16 @@ function filterCropsForCurrentMonth(allCrops) {
     return {
         monthName: now.toLocaleString('en-US', { month: 'long' }),
         filteredCrops: allCrops.filter(crop => {
-            const canBePlanted = crop.growing_calendar.planting.includes(currentMonth);
-            const canBeHarvested = crop.growing_calendar.harvest.includes(currentMonth);
-            return canBePlanted || canBeHarvested;
+            return crop.growing_calendar.planting.includes(currentMonth) || 
+                   crop.growing_calendar.harvest.includes(currentMonth);
         })
     };
 }
 
 function setupEventListeners(allCrops) {
-    const container = document.getElementById('crops-container');
+    const container = document.getElementById('seasonal-crops-container') || 
+                     document.getElementById('crops-container');
+    
     if (container) {
         container.addEventListener('click', (event) => {
             const button = event.target.closest('.more-info-btn');
@@ -25,82 +25,89 @@ function setupEventListeners(allCrops) {
                 const card = button.closest('.crop-card');
                 const cropId = card.dataset.id;
                 const selectedCrop = allCrops.find(crop => crop.id === cropId);
-                if (selectedCrop) {
-                    showModal(selectedCrop);
-                }
+                if (selectedCrop) showModal(selectedCrop);
             }
         });
     }
 
-    const cropDetailModal = document.getElementById('crop-modal');
-    if (cropDetailModal) {
-        cropDetailModal.addEventListener('click', (event) => {
-            if (event.target.classList.contains('close-button') || event.target === cropDetailModal) {
-                closeModal();
-            }
-        });
-    }
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('close-button') || 
+            event.target.classList.contains('modal')) {
+            closeModal();
+        }
+    });
+
+    setupFilterButtons(allCrops);
 }
 
-function setupInfoModal() {
-    const modal = document.getElementById('info-modal');
-    const triggerLink = document.getElementById('info-modal-trigger');
-    const closeButton = modal.querySelector('.close-button');
+function setupFilterButtons(allCrops) {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (!filterButtons.length) return;
 
-    if (!modal || !triggerLink || !closeButton) return;
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            const currentMonth = new Date().toLocaleString('en-US', { month: 'long' }).toLowerCase();
+            const container = document.getElementById('seasonal-crops-container');
 
-    triggerLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        modal.style.display = 'flex';
-    });
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
 
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+            if (filter === 'all') {
+                displayCrops(allCrops, container);
+                return;
+            }
 
-    window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
+            const filteredCrops = allCrops.filter(crop => {
+                if (filter === 'planting') {
+                    return crop.growing_calendar.planting.includes(currentMonth);
+                } else if (filter === 'harvest') {
+                    return crop.growing_calendar.harvest.includes(currentMonth);
+                }
+                return false;
+            });
+
+            displayCrops(filteredCrops, container);
+        });
     });
 }
 
 async function initializeApp() {
-    const allCrops = await getCropsData();
-    const cropsContainer = document.getElementById('crops-container');
-
-    if (!cropsContainer || allCrops.length === 0) {
-        if (cropsContainer) {
-            cropsContainer.innerHTML = '<p>Failed to load crop information. Please try again later.</p>';
+    try {
+        const allCrops = await getCropsData();
+        if (!allCrops || allCrops.length === 0) {
+            throw new Error('No crops data available');
         }
-        return;
-    }
 
-    const isHomePage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
-    
-    let cropsToDisplay;
-
-    if (isHomePage) {
-        const { monthName, filteredCrops } = filterCropsForCurrentMonth(allCrops);
+        const isHomePage = window.location.pathname.endsWith('/') || 
+                         window.location.pathname.endsWith('index.html');
         
-        const titleElement = document.getElementById('featured-title');
-        if (titleElement) {
-            titleElement.textContent = `Crops of ${monthName}`;
+        const container = isHomePage 
+            ? document.getElementById('seasonal-crops-container')
+            : document.getElementById('crops-container');
+
+        if (!container) return;
+
+        if (isHomePage) {
+            const { monthName, filteredCrops } = filterCropsForCurrentMonth(allCrops);
+            const titleElement = document.getElementById('seasonal-title');
+            if (titleElement) {
+                titleElement.textContent = `Seasonal Crops - ${monthName}`;
+            }
+            displayCrops(filteredCrops, container);
+        } else {
+            displayCrops(allCrops, container);
         }
 
-        cropsToDisplay = filteredCrops;
-
-        if (cropsToDisplay.length === 0) {
-            cropsContainer.innerHTML = `<p>No featured crops for ${monthName}. Check back later!</p>`;
-            return;
+        setupEventListeners(allCrops);
+    } catch (error) {
+        console.error('App initialization failed:', error);
+        const container = document.getElementById('seasonal-crops-container') || 
+                         document.getElementById('crops-container');
+        if (container) {
+            container.innerHTML = '<p class="error-message">Failed to load crop data. Please try again later.</p>';
         }
-    } else {
-        cropsToDisplay = allCrops;
     }
-    
-    displayCrops(cropsToDisplay, cropsContainer);
-    setupEventListeners(allCrops);
-    setupInfoModal();
 }
 
 initializeApp();

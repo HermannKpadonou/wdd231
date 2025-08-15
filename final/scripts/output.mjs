@@ -1,5 +1,8 @@
-
 export function displayCrops(crops, container) {
+    if (crops.length === 0) {
+        container.innerHTML = '<p>No crops match the selected filter.</p>';
+        return;
+    }
     container.innerHTML = '';
 
     const currentMonth = new Date().toLocaleString('en-US', { month: 'long' }).toLowerCase();
@@ -29,7 +32,7 @@ export function displayCrops(crops, container) {
                     </div>
                 </div>
                 <div class="card-actions">
-                    <button class="more-info-btn">More</button>
+                    <button class="more-info-btn">More Info</button>
                 </div>
             </article>
         `;
