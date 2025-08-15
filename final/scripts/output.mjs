@@ -1,17 +1,37 @@
+
 export function displayCrops(crops, container) {
     container.innerHTML = '';
-    
+
+    const currentMonth = new Date().toLocaleString('en-US', { month: 'long' }).toLowerCase();
+
     crops.forEach(crop => {
+        let statusText = '';
+        const isPlantingTime = crop.growing_calendar.planting.includes(currentMonth);
+        const isHarvestTime = crop.growing_calendar.harvest.includes(currentMonth);
+
+        if (isPlantingTime && isHarvestTime) {
+            statusText = 'Planting & Harvest Season';
+        } else if (isPlantingTime) {
+            statusText = 'Planting Season';
+        } else if (isHarvestTime) {
+            statusText = 'Harvest Season';
+        }
+
         const cardHTML = `
-            <div class="crop-card" data-id="${crop.id}">
+            <article class="crop-card" data-id="${crop.id}">
                 <img src="${crop.image_url}" alt="${crop.name}" loading="lazy">
                 <div class="card-content">
                     <h3>${crop.name}</h3>
-                    <p>${crop.description.general}</p>
-                    <p><strong>Optimal Season:</strong> ${crop.growing_calendar.optimal_season}</p>
-                    <p><strong>Uses:</strong> ${crop.uses}</p>
+                    <p class="crop-status">${statusText}</p>
+                    <div class="price-info">
+                        <p><strong>Wholesale:</strong> ${crop.pricing.wholesale.in_season}</p>
+                        <p><strong>Retail:</strong> ${crop.pricing.retail.in_season}</p>
+                    </div>
                 </div>
-            </div>
+                <div class="card-actions">
+                    <button class="more-info-btn">More</button>
+                </div>
+            </article>
         `;
         container.innerHTML += cardHTML;
     });
@@ -36,7 +56,7 @@ export function showModal(crop) {
         <h3>Pricing (Wholesale, in season)</h3>
         <p>${crop.pricing.wholesale.in_season}</p>
     `;
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
 }
 
 export function closeModal() {

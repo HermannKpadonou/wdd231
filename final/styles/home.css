@@ -66,12 +66,6 @@ main {
     color: var(--text-on-primary);
 }
 
-.logo-container .tagline {
-    display: none;
-    font-size: 0.875rem;
-    opacity: 0.8;
-}
-
 .hamburger-btn {
     display: none;
     background: none;
@@ -106,7 +100,6 @@ main {
     position: relative;
     height: 70vh;
     min-height: 400px;
-    max-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,22 +107,21 @@ main {
     color: white;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     overflow: hidden;
+    background-image: url('../images/famer.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.hero-image-container {
+.hero::before {
+    content: '';
     position: absolute;
-    inset: 0; 
-    z-index: -1; 
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.9);
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .hero-content {
+    position: relative;
     padding: 2rem;
     max-width: 800px;
 }
@@ -164,13 +156,6 @@ main {
     background-color: #d4b482; 
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.hero-image-container::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
 }
 
 .mission-section, .featured-crops {
@@ -216,8 +201,8 @@ main {
 }
 
 #workshop-map-container {
-    width: 60%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1600px;
     height: 500px;
     margin: 0 auto;
     border-radius: 12px;
@@ -228,7 +213,6 @@ main {
 #crops-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
     background-color: var(--surface-color);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -237,14 +221,95 @@ main {
 
 .featured-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    padding: 2rem;
+}
+
+.crop-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.crop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.crop-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.crop-card .card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.crop-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.crop-card .crop-status {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    flex-grow: 1;
+}
+
+.crop-card .price-info {
+    font-size: 0.9rem;
+}
+
+.crop-card .price-info p {
+    margin: 0.25rem 0;
+}
+
+/* Ajouté : Styles pour le bouton More Info */
+.crop-card {
+    position: relative; 
+}
+
+.card-actions {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    text-align: right; 
+}
+
+.more-info-btn {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.more-info-btn:hover {
+    background-color: #2a4d32;
+    transform: translateY(-2px);
 }
 
 .loading-message {
     text-align: center;
     color: var(--text-light);
     font-style: italic;
+    padding: 2rem;
 }
 
 .site-footer {
@@ -276,20 +341,18 @@ main {
 }
 
 .footer-column.footer-left { justify-self: start; }
-
 .footer-social {
     justify-self: center;
     display: flex;
     gap: 1.5rem;
 }
-
 .footer-column.footer-right {
     justify-self: end;
     text-align: right;
 }
 
 .footer-social img {
-    height: 24px;
+    height: 50px;
     filter: brightness(0) invert(1) opacity(0.8);
     transition: filter 0.2s ease;
 }
@@ -304,18 +367,65 @@ main {
     opacity: 0.7;
 }
 
-@media (min-width: 768px) {
-    .logo-container .tagline {
-        display: block;
-    }
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.modal-content {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-color);
+}
+
+.modal-content h2 { margin-top: 0; }
+.modal-content p { line-height: 1.7; }
+.modal-content hr { border: 0; border-top: 1px solid #eee; margin: 1rem 0; }
+.modal-image { width: 100%; height: auto; border-radius: 4px; margin-bottom: 1rem; }
+.modal-content ul { list-style: none; padding: 0; }
+.modal-content li { margin-bottom: 0.5rem; }
+
+
+@keyframes fadeIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
 }
 
 @media (max-width: 768px) {
-    .hamburger-btn {
-        display: block;
-        z-index: 1001;
-    }
-
+    .hamburger-btn { display: block; z-index: 1001; }
     .main-navigation {
         display: none;
         position: fixed;
@@ -326,55 +436,15 @@ main {
         align-items: center;
         z-index: 1000;
     }
-
-    .main-navigation.open {
-        display: flex;
-    }
-
-    .main-navigation ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .main-navigation a {
-        font-size: 1.5rem;
-        padding: 0.5rem 2rem;
-    }
-
-    .hero {
-        height: 70vh;
-    }
-
-    .mission-section, .featured-crops {
-        padding: 2rem 1rem;
-    }
-    
-    .map-section {
-        padding: 2rem 0;
-    }
-
-    #crops-container {
-        padding: 1rem;
-    }
-    
-    #workshop-map-container {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .site-footer {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-    
-    .footer-column, .footer-social {
-        justify-self: center;
-        text-align: center;
-    }
-
-    .footer-column.footer-right {
-        text-align: center;
-    }
+    .main-navigation.open { display: flex; }
+    .main-navigation ul { flex-direction: column; text-align: center; gap: 2rem; }
+    .main-navigation a { font-size: 1.5rem; padding: 0.5rem 2rem; }
+    .hero { height: 70vh; }
+    .mission-section, .featured-crops { padding: 2rem 1rem; }
+    .map-section { padding: 2rem 0; }
+    #crops-container, #workshop-map-container { padding: 1rem; }
+    #workshop-map-container { width: 100%; border-radius: 0; }
+    .site-footer { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+    .footer-column, .footer-social { justify-self: center; text-align: center; }
+    .footer-column.footer-right { text-align: center; }
 }

@@ -1,3 +1,4 @@
+// module.mjs
 const dataUrl = 'data/crops.json';
 
 export async function getCropsData() {

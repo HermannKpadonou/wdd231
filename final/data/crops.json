@@ -400,7 +400,7 @@
       "id": "gre013",
       "name": "Leafy Greens",
       "scientific_name": "Amaranthus spp.",
-      "image_url": "images/greens.jpg",
+      "image_url": "images/leafy.jpg",
       "description": {
         "general": "Includes amaranth, jute, sorrel. Fast-growing.",
         "human_health": "Iron and calcium rich",
@@ -433,7 +433,7 @@
       "id": "swe014",
       "name": "Sweet Potato",
       "scientific_name": "Ipomoea batatas",
-      "image_url": "images/sweetpotato.jpg",
+      "image_url": "images/potato.jpg",
       "description": {
         "general": "Orange-fleshed varieties vitamin A rich.",
         "human_health": "Low GI, high fiber",

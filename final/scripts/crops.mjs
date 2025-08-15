@@ -1,3 +1,4 @@
+
 import { getCropsData } from './module.mjs';
 import { displayCrops, showModal, closeModal } from './output.mjs';
 
@@ -6,13 +7,62 @@ function filterCropsForCurrentMonth(allCrops) {
     const currentMonth = now.toLocaleString('en-US', { month: 'long' }).toLowerCase();
     
     return {
-        monthName: now.toLocaleString('en-US', { month: 'long' }), 
+        monthName: now.toLocaleString('en-US', { month: 'long' }),
         filteredCrops: allCrops.filter(crop => {
             const canBePlanted = crop.growing_calendar.planting.includes(currentMonth);
             const canBeHarvested = crop.growing_calendar.harvest.includes(currentMonth);
             return canBePlanted || canBeHarvested;
         })
     };
+}
+
+function setupEventListeners(allCrops) {
+    const container = document.getElementById('crops-container');
+    if (container) {
+        container.addEventListener('click', (event) => {
+            const button = event.target.closest('.more-info-btn');
+            if (button) {
+                const card = button.closest('.crop-card');
+                const cropId = card.dataset.id;
+                const selectedCrop = allCrops.find(crop => crop.id === cropId);
+                if (selectedCrop) {
+                    showModal(selectedCrop);
+                }
+            }
+        });
+    }
+
+    const cropDetailModal = document.getElementById('crop-modal');
+    if (cropDetailModal) {
+        cropDetailModal.addEventListener('click', (event) => {
+            if (event.target.classList.contains('close-button') || event.target === cropDetailModal) {
+                closeModal();
+            }
+        });
+    }
+}
+
+function setupInfoModal() {
+    const modal = document.getElementById('info-modal');
+    const triggerLink = document.getElementById('info-modal-trigger');
+    const closeButton = modal.querySelector('.close-button');
+
+    if (!modal || !triggerLink || !closeButton) return;
+
+    triggerLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.style.display = 'flex';
+    });
+
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
 }
 
 async function initializeApp() {
@@ -33,7 +83,6 @@ async function initializeApp() {
     if (isHomePage) {
         const { monthName, filteredCrops } = filterCropsForCurrentMonth(allCrops);
         
-       
         const titleElement = document.getElementById('featured-title');
         if (titleElement) {
             titleElement.textContent = `Crops of ${monthName}`;
@@ -50,48 +99,8 @@ async function initializeApp() {
     }
     
     displayCrops(cropsToDisplay, cropsContainer);
-    setupEventListeners(allCrops, cropsContainer);
-    displayLastViewedCrop();
-}
-
-function setupEventListeners(allCrops, container) {
-    container.addEventListener('click', (event) => {
-        const card = event.target.closest('.crop-card');
-        if (card) {
-            const cropId = card.dataset.id;
-            const selectedCrop = allCrops.find(crop => crop.id === cropId);
-            if (selectedCrop) {
-                showModal(selectedCrop);
-                localStorage.setItem('lastViewedCropId', cropId);
-            }
-        }
-    });
-
-    const modal = document.getElementById('crop-modal');
-    if (modal) {
-        modal.addEventListener('click', (event) => {
-            if (event.target.classList.contains('close-button') || event.target === modal) {
-                closeModal();
-            }
-        });
-    }
-}
-
-function displayLastViewedCrop() {
-    const lastViewedId = localStorage.getItem('lastViewedCropId');
-    const lastViewedContainer = document.getElementById('last-viewed-crop'); 
-    
-    if (lastViewedId && lastViewedContainer) {
-        getCropsData().then(crops => {
-            const lastViewedCrop = crops.find(crop => crop.id === lastViewedId);
-            if (lastViewedCrop) {
-                lastViewedContainer.innerHTML = `
-                    <h3>Last Viewed</h3>
-                    <p>You recently viewed: <strong>${lastViewedCrop.name}</strong></p>
-                `;
-            }
-        });
-    }
+    setupEventListeners(allCrops);
+    setupInfoModal();
 }
 
 initializeApp();
