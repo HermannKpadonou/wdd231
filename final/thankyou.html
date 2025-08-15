@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Agri-Terroir</title>
+    <meta name="description" content="Confirmation of your registration with the Agri-Terroir community.">
+    <meta name="author" content="Hermann M KPADONOU">
+
+    <link rel="icon" href="images/icon-project.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/thankyou.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo-container">
+            <img src="images/icon-project.svg" alt="Agri-Terroir Logo Icon">
+            <h1>Agri-Terroir</h1>
+            <p class="tagline">Guide to Local Crops</p>
+        </a>
+        <button id="hamburger" class="hamburger-btn" aria-label="Open navigation menu">&#9776;</button>
+        <nav id="main-nav" class="main-navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="crops.html">Crops</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="thank-you-section">
+            <div class="thank-you-message">
+                <h1>Thank You!</h1>
+                <p>Your registration has been successfully submitted. Welcome to the Agri-Terroir community!</p>
+                <a href="contact.html" class="back-link">Register another person</a>
+            </div>
+
+            <div class="history-section">
+                <h2>Registration History</h2>
+                <div id="history-container">
+                    <p>Loading registration history...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        
+        <div class="footer-column footer-left">
+            <h3>Contact us</h3>
+            <p>
+                <a href="mailto:agriterroir@ivoire.ci">agriterroir@ivoire.ci</a><br>
+                <a href="tel:+225 01 23 45 67">+225 01 23 45 67</a><br>
+                <a href="https://www.google.com/maps/place/Agri-Terroir/Côte+d'Ivoire" target="_blank">123 Agri Street, Abidjan</a>
+            </p>
+        </div>
+        <div class="footer-column footer-center">
+            <h3>Follow Us</h3>
+            <div class="footer-social">
+                <a href="#" target="_blank"><img src="images/youtube.svg" alt="YouTube"></a>
+                <a href="#" target="_blank"><img src="images/tik-tok.svg" alt="TikTok"></a>
+                <a href="#" target="_blank"><img src="images/facebook.svg" alt="Facebook"></a>
+            </div>
+        </div>
+        <div class="footer-column footer-right">
+            <h3>Final Project</h3>
+            <p>WDD231-Term 4 - Hermann M. KPADONOU</p>
+            <div class="footer-meta">
+                <p>&copy;<span id="currentYear"></span> Hermann M. KPADONOU | Agri-Terroir</p>
+                <p>Last Modified: <span id="lastModified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

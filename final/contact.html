@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agri-Terroir - Contact | Guide to Local Crops</title>
-    <meta name="description" content="WDD231 - Final Project - Interactive guide to local and heritage crops - Discover, learn and save your favorite agricultural products.">
+    <title>Agri-Terroir - Community Hub</title>
+    <meta name="description" content="Join our community, discover our projects, and stay connected with Agri-Terroir.">
     <meta name="keywords" content="agriculture, terroir, local crops, seasonal products, gardening, agricultural heritage">
     <meta name="author" content="Hermann M KPADONOU">
 
@@ -20,11 +20,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/contact.css">
 
-    <script src="../scripts/navigation.js" defer></script>
-    <script src="../scripts/getdate.js" defer></script>
-    <script src="scripts/home.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/contact.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -36,14 +38,93 @@
         <button id="hamburger" class="hamburger-btn" aria-label="Open navigation menu">&#9776;</button>
         <nav id="main-nav" class="main-navigation">
             <ul>
-                <li><a  href="index.html" >Home</a></li>
-                <li><a  href="crops.html">Crops</a></li>
-                <li><a class="current" href="contact.html">Notebook</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="crops.html">Crops</a></li>
+                <li><a class="current" href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <section class="form-hero" aria-labelledby="form-hero-title">
+            <div class="hero-content">
+                <h1 id="form-hero-title">Community Hub</h1>
+                <p>Join us, discover our actions, and stay informed.</p>
+            </div>
+        </section>
+
+        <section class="form-section" id="join-us">
+            <div class="form-container inspired-form">
+                <h2>Join Our Community</h2>
+                <p class="form-subtitle">Fill out the form below to become a member of the Agri-Terroir network.</p>
+                <div id="form-message"></div>
+                <form action="thankyou.html" method="get" id="registration-form" >
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name*</label>
+                            <input type="text" id="last-name" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+225 XX XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-type">Profile Type*</label>
+                        <select id="user-type" name="userType" required>
+                            <option value="" disabled selected>Select your profile...</option>
+                            <option value="student">Student in Agronomy/Related Fields</option>
+                            <option value="farmer">Farmer / Agricultural Producer</option>
+                            <option value="consumer">Consumer / Local Product Enthusiast</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization / Farm Name (if applicable)/ School Name(if applicable)</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Brief Description / Interests</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Tell us a little about your interests in local agriculture..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Join the Community</button>
+                </form>
+            </div>
+        </section>
         
+        <section class="projects-section" id="projects">
+            <h2 class="section-header">Our Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="images/youth.jpg" alt="Youth learning about farming">
+                    <div class="project-content">
+                        <h3>Youth in Agriculture Initiative</h3>
+                        <p>We provide training and resources to young people aspiring to careers in modern agriculture, ensuring the next generation of farmers is well-equipped.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/local.jpg" alt="A bustling local market">
+                    <div class="project-content">
+                        <h3>Digital Farmer's Market</h3>
+                        <p>Our online platform connects farmers directly with consumers, ensuring fair prices and promoting local products.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/seeds.jpg" alt="Various traditional seeds">
+                    <div class="project-content">
+                        <h3>Heritage Seed Bank</h3>
+                        <p>We are creating a repository of local and heritage seeds to preserve agricultural biodiversity and promote resilient crops.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
     <footer class="site-footer">
         <div class="footer-column footer-left">
@@ -56,10 +137,13 @@
                 <a href="https://www.google.com/maps/place/Agri-Terroir/Côte+d'Ivoire" target="_blank">123 Agri Street, Abidjan, Côte d'Ivoire</a>
             </p>
         </div>
-        <div class="footer-social">
-            <a href="#" target="_blank" aria-label="Visit our YouTube channel"><img src="images/youtube.svg" alt="YouTube"></a>
-            <a href="#" target="_blank" aria-label="Visit our TikTok page"><img src="images/tik-tok.svg" alt="TikTok"></a>
-            <a href="#" target="_blank" aria-label="Visit our Facebook page"><img src="images/facebook.svg" alt="Facebook"></a>
+        <div class="footer-column footer-center">
+            <h3>Follow Us</h3>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="Visit our YouTube channel"><img src="images/youtube.svg" alt="YouTube"></a>
+                <a href="#" target="_blank" aria-label="Visit our TikTok page"><img src="images/tik-tok.svg" alt="TikTok"></a>
+                <a href="#" target="_blank" aria-label="Visit our Facebook page"><img src="images/facebook.svg" alt="Facebook"></a>
+            </div>
         </div>
         <div class="footer-column footer-right">
             <h3>Final Project</h3>
@@ -70,6 +154,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
