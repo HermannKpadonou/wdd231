@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="GK Groupe Sarl">
+    <meta name="description" content="Contactez SAP GK Groupe pour vos commandes de poisson, formations piscicoles ou visites de notre station à Aboisso.">
+    <meta name="keywords" content="contact pisciculture Aboisso, commande poisson, formation aquaculture, visite station piscicole">
+    <meta property="og:title" content="Contact | SAP GK Groupe">
+    <meta property="og:description" content="Contactez-nous pour commander nos produits ou services piscicoles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta name="theme-color" content="#0A1841">
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icônes Font Awesome -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Lien vers la feuille de style externe -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/contact.css">
+
+    <!-- Lien vers le script externe -->
+    <script src="scripts/main.js" defer></script>
+
+    <title>Contact | SAP GK Groupe | Station Agro-Piscicole</title>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+    
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo_simple.png" alt="logo de SAP GK Groupe">
+                <h1>SAP GK Groupe</h1>
+                <p>Station Agro-Piscicole</p>
+            </div>
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html" target="_blank">Accueil</a></li>
+                    <li><a href="produits.html"  target="_blank">Nos Produits</a></li>
+                    <li><a href="services.html"  target="_blank" >Services</a></li>
+                    <li><a href="station.html" target="_blank" >Notre Station</a></li>
+                    <li><a class="current" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Section Héro Contact -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p>Nous sommes à votre écoute pour répondre à toutes vos questions</p>
+            </div>
+        </section>
+
+        <!-- Section Informations de Contact -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Adresse</h3>
+                        <p>Aboisso, Côte d'Ivoire</p>
+                        <a href="#" class="btn btn-secondary">Voir sur la carte</a>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <p>27 34 75 58 23</p>
+                        <p>05 05 25 32 09</p>
+                        <a href="tel:+2252734755823" class="btn btn-secondary">Appeler maintenant</a>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>contact@sapgkgroupe.com</p>
+                        <a href="mailto:contact@sapgkgroupe.com" class="btn btn-secondary">Envoyer un email</a>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Horaires</h3>
+                        <p>Lun - Ven: 8h - 18h</p>
+                        <p>Sam: 8h - 13h</p>
+                        <p>Dim: Fermé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formulaire de Contact -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-container">
+                    <div class="form-intro">
+                        <h2>Envoyez-nous un message</h2>
+                        <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="commande">Commande de produits</option>
+                                    <option value="devis">Demande de devis</option>
+                                    <option value="formation">Information sur les formations</option>
+                                    <option value="visite">Visite de la station</option>
+                                    <option value="autre">Autre demande</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Comment commander vos produits?</h3>
+                        <p>Vous pouvez commander nos produits par téléphone, email ou via le formulaire de contact. Nous vous recontacterons pour confirmer votre commande et organiser la livraison.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Proposez-vous la livraison?</h3>
+                        <p>Oui, nous livrons dans tout Aboisso et ses environs. Pour les commandes importantes, nous pouvons organiser la livraison vers Abidjan et autres villes.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Quels sont les modes de paiement acceptés?</h3>
+                        <p>Nous acceptons les paiements en espèces, par virement bancaire et mobile money (Orange Money, MTN Money).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Faut-il réserver pour visiter votre station?</h3>
+                        <p>Oui, nous vous recommandons de prendre rendez-vous au moins 48h à l'avance pour organiser une visite guidée de nos installations.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Proposez-vous des formations pour débutants?</h3>
+                        <p>Absolument! Nous proposons des formations adaptées à tous les niveaux, y compris des programmes complets pour les personnes souhaitant se lancer en pisciculture.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Quelle est la durée de formation typique?</h3>
+                        <p>Nos formations d'initiation durent généralement 3 à 5 jours. Pour les formations complètes incluant le suivi, comptez 2 à 4 semaines selon votre niveau et objectifs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Carte -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title">Nous trouver</h2>
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Carte interactive</h3>
+                        <p>Localisation de notre station à Aboisso</p>
+                        <a href="#" class="btn btn-primary">Voir sur Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section CTA -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Prêt à discuter de votre projet?</h2>
+                    <p>Contactez-nous dès aujourd'hui pour obtenir des informations personnalisées</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+2252734755823" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> Appeler maintenant
+                        </a>
+                        <a href="mailto:contact@sapgkgroupe.com" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Envoyer un email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h4>SAP GK Groupe</h4>
+                <p>Production, Transformation et Commercialisation de Silure et Tilapia</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Aboisso, Côte d'Ivoire</p>
+                <p><i class="fas fa-phone"></i> 27 34 75 58 23</p>
+                <p><i class="fas fa-mobile-alt"></i> 05 05 25 32 09</p>
+                <p><i class="fas fa-envelope"></i> contact@sapgkgroupe.com</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="station.html">Notre Station</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-bottom">
+                <p><strong>STATION AGRO-PISCICOLE GK GROUPE</strong> - Sarl</p>
+                <p><strong>Registre de Commerce :</strong> CI-ABS-01-2025-B12-00029</p>
+                <p>&copy;<span id="currentYear"></span> | Aboisso, Côte d'Ivoire</p>
+                <p>Dernière Modification : <span id="lastModified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
