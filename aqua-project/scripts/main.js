@@ -1,77 +1,78 @@
-// Gestion de la date de dernière modification
-document.getElementById('lastModified').textContent = document.lastModified;
+// Fichier : scripts/main.js (Version corrigée et fusionnée)
 
-// Gestion de l'année en cours
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', function() {
 
-// Menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('nav ul');
-
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    });
-}
-
-// Navigation fluide
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            
-            // Fermer le menu mobile si ouvert
-            if (navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-            }
-        }
-    });
-});
-
-// Gestion du formulaire de contact
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Ici vous ajouterez le code pour envoyer le formulaire
-        // Pour l'instant, on simule un envoi réussi
-        alert('Votre message a été envoyé avec succès ! Nous vous contacterons bientôt.');
-        contactForm.reset();
-    });
-}
-
-// Animation au défilement
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.product-card, .service-item, .station-content, .contact-content');
+    // --- GESTION DES DATES DANS LE FOOTER ---
+    const currentYearSpan = document.getElementById('currentYear');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
     
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-            element.style.opacity = 1;
-            element.style.transform = 'translateY(0)';
+    const lastModifiedSpan = document.getElementById('lastModified');
+    if (lastModifiedSpan) {
+        lastModifiedSpan.textContent = new Date(document.lastModified).toLocaleDateString('fr-FR', {
+            day: '2-digit', month: '2-digit', year: 'numeric'
+        });
+    }
+
+    // --- GESTION DU MENU MOBILE (HAMBURGER) ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            // Change l'icône du bouton
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // --- GESTION DU HEADER QUI SE RÉTRÉCIT AU DÉFILEMENT ---
+    const header = document.getElementById('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // --- ANIMATION DES COMPTEURS SUR LA PAGE D'ACCUEIL ---
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200; // Vitesse de l'animation
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
+        const inc = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(() => animateCounter(counter), 1);
+        } else {
+            counter.innerText = target;
         }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target); // Pour ne l'animer qu'une fois
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        observer.observe(counter);
     });
-}
-
-// Initialiser les styles d'animation
-document.querySelectorAll('.product-card, .service-item, .station-content, .contact-content').forEach(element => {
-    element.style.opacity = 0;
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 });
-
-// Écouter l'événement de défilement
-window.addEventListener('scroll', animateOnScroll);
-// Déclencher une première fois au chargement
-window.addEventListener('load', animateOnScroll);
