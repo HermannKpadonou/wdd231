@@ -3,185 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="GK Groupe Sarl">
-    <meta name="description" content="Découvrez nos produits piscicoles : alevins de silure, silure marchand, tilapia rouge et produits transformés.">
-    <meta name="keywords" content="alevins silure, silure frais, tilapia rouge, produits transformés poisson, vente poisson Aboisso">
-    <meta property="og:title" content="Nos Produits | SAP GK Groupe">
-    <meta property="og:description" content="Découvrez notre gamme de produits piscicoles de qualité supérieure.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta name="theme-color" content="#0A1841">
+    <title>Nos Produits & Tarifs - SAP GK GROUPE</title>
+    <meta name="description" content="Découvrez nos tarifs et notre boutique en ligne : alevins, silures, tilapias et produits transformés. Qualité garantie.">
     
-    <!-- Polices Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icônes Font Awesome -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Favicon, Polices et Icônes -->
+    <link rel="icon" href="images/logo_simple.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Lien vers la feuille de style externe -->
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/products.css">
 
-    <!-- Lien vers le script externe -->
-    <script src="scripts/main.js" defer></script>
-
-    <title>Nos Produits | SAP GK Groupe | Station Agro-Piscicole</title>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Le script boutique.js est appelé en fin de body pour une meilleure performance -->
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     
     <header id="header">
         <div class="header-container">
-            <div class="logo">
-                <img src="images/logo_simple.png" alt="logo de SAP GK Groupe">
-                <h1>SAP GK Groupe</h1>
-                <p>Station Agro-Piscicole</p>
-            </div>
-            <button class="menu-toggle" aria-label="Ouvrir le menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <a href="index.html" class="logo">
+                <img src="images/logo_simple.png" alt="Logo SAP GK GROUPE">
+                <div>
+                    <h1>SAP GK GROUPE</h1>
+                    <p>Innovation Aquacole & Développement Durable</p>
+                </div>
+            </a>
+            <button class="menu-toggle" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a class="current" href="produits.html">Nos Produits</a></li>
+                    <li><a href="produits.html" class="current">Produits</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="station.html">Notre Station</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="#" id="cart-icon" class="cart-icon" aria-label="Ouvrir le panier">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-counter">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
-
+    
+    <section class="page-hero products-hero">
+        <div class="container">
+            <h1>Nos Produits & Tarifs</h1>
+            <p>Découvrez notre gamme complète de produits aquacoles de qualité exceptionnelle</p>
+        </div>
+    </section>
+    
     <main id="main-content">
-        <!-- Section Héro Produits -->
-        <section class="page-hero">
+        <!-- Section 1 : Grille Tarifaire Statique -->
+        <section class="section">
             <div class="container">
-                <h1>Nos Produits</h1>
-                <p>Découvrez notre gamme complète de produits piscicoles de qualité</p>
-            </div>
-        </section>
-
-        <!-- Section Alevins -->
-        <section id="alevins" class="product-detail">
-            <div class="container">
-                <div class="product-detail-content">
-                    <div class="product-detail-image">
-                        <img src="images/ALEVIN.jpg" alt="Alevins de silure de qualité">
-                    </div>
-                    <div class="product-detail-text">
-                        <h2>Alevins de Silure</h2>
-                        <p>Nous produisons des alevins de silure de haute qualité, sélectionnés et élevés dans des conditions optimales pour garantir leur robustesse et leur taux de survie élevé.</p>
-                        <div class="product-features">
-                            <h3>Caractéristiques :</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Taille standard : 2-3 cm</li>
-                                <li><i class="fas fa-check"></i> Excellente résistance aux maladies</li>
-                                <li><i class="fas fa-check"></i> Croissance rapide et homogène</li>
-                                <li><i class="fas fa-check"></i> Disponibles toute l'année</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
-                            <a href="#contact" class="btn btn-secondary">Plus d'infos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Silure Marchand -->
-        <section id="silure" class="product-detail alt">
-            <div class="container">
-                <div class="product-detail-content">
-                    <div class="product-detail-text">
-                        <h2>Silure Marchand</h2>
-                        <p>Notre silure est élevé dans des bassins hors-sol avec une alimentation contrôlée, garantissant une chair ferme, savoureuse et sans arrière-goût de vase.</p>
-                        <div class="product-features">
-                            <h3>Caractéristiques :</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Poids moyen : 800g - 1,2kg</li>
-                                <li><i class="fas fa-check"></i> Elevé sans antibiotiques</li>
-                                <li><i class="fas fa-check"></i> Conditionnement : frais ou vivant</li>
-                                <li><i class="fas fa-check"></i> Livraison sous 24h après commande</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
-                            <a href="#contact" class="btn btn-secondary">Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="product-detail-image">
-                        <img src="images/silure.jpg" alt="Silure frais de qualité">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Tilapia Rouge -->
-        <section id="tilapia" class="product-detail">
-            <div class="container">
-                <div class="product-detail-content">
-                    <div class="product-detail-image">
-                        <img src="images/tilapia-rouge2.webp" alt="Tilapia rouge frais">
-                    </div>
-                    <div class="product-detail-text">
-                        <h2>Tilapia Rouge</h2>
-                        <p>Le tilapia rouge est apprécié pour sa chair blanche, ferme et peu arêteuse. C'est un poisson versatile qui se prête à de nombreuses préparations culinaires.</p>
-                        <div class="product-features">
-                            <h3>Caractéristiques :</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Poids moyen : 500g - 800g</li>
-                                <li><i class="fas fa-check"></i> Chair ferme et savoureuse</li>
-                                <li><i class="fas fa-check"></i> Faible teneur en arêtes</li>
-                                <li><i class="fas fa-check"></i> Idéal pour la restauration</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
-                            <a href="#contact" class="btn btn-secondary">Plus d'infos</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Produits Transformés -->
-        <section id="transformes" class="product-detail alt">
-            <div class="container">
-                <div class="product-detail-content">
-                    <div class="product-detail-text">
-                        <h2>Produits Transformés</h2>
-                        <p>Nous développons une gamme de produits transformés à base de silure pour valoriser toutes les parties du poisson et répondre aux besoins de différents marchés.</p>
-                        <div class="product-features">
-                            <h3>Gamme de produits :</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Filets de silure surgelés</li>
-                                <li><i class="fas fa-check"></i> Boulettes de poisson</li>
-                                <li><i class="fas fa-check"></i> Fishburgers</li>
-                                <li><i class="fas fa-check"></i> Produits fumés (en développement)</li>
-                            </ul>
-                        </div>
-                        <div class="product-actions">
-                            <a href="contact.html" class="btn btn-primary">Commander</a>
-                            <a href="#contact" class="btn btn-secondary">Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="product-detail-image">
-                        <img src="images/transform.jpg" alt="Produits transformés à base de silure">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Tableau des Prix -->
-        <section class="pricing">
-            <div class="container">
-                <h2 class="section-title">Nos Tarifs</h2>
-                <div class="pricing-table">
-                    <table>
+                <h2 class="section-title">Grille Tarifaire</h2>
+                <div class="tarifs-table-container">
+                    <table class="tarifs-table">
                         <thead>
                             <tr>
                                 <th>Produit</th>
@@ -203,7 +85,7 @@
                                 <td>2000 / kg</td>
                                 <td>Pièce ou en lot</td>
                             </tr>
-                            <tr>
+                             <tr>
                                 <td>Tilapia rouge</td>
                                 <td>Poids 500g-800g</td>
                                 <td>2500 / kg</td>
@@ -218,65 +100,80 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pricing-note">
-                    <p><strong>Note :</strong> Les prix sont donnés à titre indicatif et peuvent varier selon la quantité commandée et la saison. Nous proposons des tarifs dégressifs pour les commandes en gros.</p>
+                <div class="tarifs-note">
+                    <p><strong>Note :</strong> Les prix sont donnés à titre indicatif et peuvent varier. Pour les commandes en gros, <a href="contact.html">contactez-nous pour un devis personnalisé</a>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section CTA -->
+        <!-- Section 2 : Boutique en Ligne Dynamique -->
+        <section class="section" style="background-color: var(--bg-white);">
+            <div class="container">
+                <h2 class="section-title">Notre Boutique en Ligne</h2>
+                <div class="products-filter">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="poissons">Poissons Vivants</button>
+                    <button class="filter-btn" data-filter="transformes">Produits Transformés</button>
+                    <button class="filter-btn" data-filter="services">Services</button>
+                </div>
+                <div class="products-grid" id="products-grid">
+                    <p>Chargement des produits...</p>
+                </div>
+            </div>
+        </section>
+        
         <section class="cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2>Intéressé par nos produits?</h2>
-                    <p>Contactez-nous pour obtenir un devis personnalisé</p>
-                    <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+                    <h2>Prêt à commander ou besoin de conseils ?</h2>
+                    <p>Notre équipe est à votre disposition pour vous accompagner dans votre projet.</p>
+                    <a href="contact.html" class="btn btn-white">Nous contacter</a>
                 </div>
             </div>
         </section>
     </main>
-
+    
     <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-logo">
-                <h4>SAP GK Groupe</h4>
-                <p>Production, Transformation et Commercialisation de Silure et Tilapia</p>
-                
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Aboisso, Côte d'Ivoire</p>
-                <p><i class="fas fa-phone"></i> 27 34 75 58 23</p>
-                <p><i class="fas fa-mobile-alt"></i> 05 05 25 32 09</p>
-                <p><i class="fas fa-envelope"></i> contact@sapgkgroupe.com</p>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Liens Rapides</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="produits.html">Nos Produits</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="station.html">Notre Station</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-bottom">
-                <p><strong>STATION AGRO-PISCICOLE GK GROUPE</strong> - Sarl</p>
-                <p><strong>Registre de Commerce :</strong> CI-ABS-01-2025-B12-00029</p>
-                <p>&copy;<span id="currentYear"></span> | Aboisso, Côte d'Ivoire</p>
-                <p>Dernière Modification : <span id="lastModified"></span></p>
-            </div>
+            <div class="footer-logo"><h4>SAP GK GROUPE</h4><p>Innovation Aquacole & Développement Durable</p></div>
+            <div class="footer-contact"><h4>Contact</h4><p><i class="fas fa-phone"></i> 27 34 75 58 23 / 05 05 25 32 09</p><p><i class="fas fa-envelope"></i> contact@sapgkgroupe.com</p></div>
+            <div class="footer-links"><h4>Liens rapides</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a href="services.html">Services</a></li></ul></div>
+            <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> SAP GK GROUPE. Tous droits réservés.</p><p>Dernière Modification : <span id="lastModified"></span></p></div>
         </div>
     </footer>
+    
+    <!-- MODALS & SIDEBARS -->
+    <div class="product-modal" id="product-modal"> <!-- Modal pour voir les détails du produit -->
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Fermer">&times;</button>
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+    
+    <div class="cart-sidebar" id="cart-sidebar"> <!-- Panier latéral -->
+        <div class="cart-header"><h3>Votre Panier</h3><button class="close-cart" id="close-cart-btn" aria-label="Fermer le panier">&times;</button></div>
+        <div class="cart-items" id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total:</span><span id="cart-total-price">0 FCFA</span></div>
+            <button id="process-order-btn" class="btn btn-primary">Passer la commande</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+    
+    <div class="order-modal" id="order-modal"> <!-- Modal pour finaliser la commande -->
+        <div class="modal-content">
+            <button class="close-modal" id="close-order-modal" aria-label="Fermer">&times;</button>
+            <h3>Finaliser votre commande</h3>
+            <div class="order-summary" id="order-summary"></div>
+            <form id="order-form">
+                <p>Veuillez compléter vos informations pour valider.</p>
+                <div class="form-group"><label for="customer-name">Nom complet</label><input type="text" id="customer-name" required></div>
+                <div class="form-group"><label for="customer-phone">Numéro de téléphone</label><input type="tel" id="customer-phone" required></div>
+                <div class="form-group"><label for="customer-email">Adresse e-mail</label><input type="email" id="customer-email" required></div>
+                <button type="submit" class="btn btn-primary w-100" id="submit-order-btn"><span class="btn-text">Confirmer et envoyer</span><span class="spinner"></span></button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts/boutique.js"></script>
 </body>
 </html>
