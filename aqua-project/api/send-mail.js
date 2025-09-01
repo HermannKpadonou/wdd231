@@ -1,18 +1,31 @@
-// Fichier : /api/send-email.js (Version finale et robuste)
+// Fichier : /api/send-email.js (Version CommonJS ultra-standard)
 
 const nodemailer = require('nodemailer');
-const { send } = require('micro');
-const cors = require('micro-cors')(); // On importe et initialise le middleware CORS
 
-// On encapsule notre logique dans le middleware CORS
-const handler = async (req, res) => {
-  // On vérifie la méthode après la gestion du "preflight" par CORS
+// On exporte la fonction handler
+module.exports = async (req, res) => {
+  // --- Gestion Manuelle du CORS (la plus explicite possible) ---
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Autorise toutes les origines
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Si c'est une requête OPTIONS (preflight), on répond immédiatement OK
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // On s'assure que c'est bien une requête POST
   if (req.method !== 'POST') {
-    return send(res, 405, { success: false, message: 'Seule la méthode POST est autorisée' });
+    return res.status(405).json({ message: 'Méthode non autorisée.' });
   }
 
   try {
     const { customerEmail, customerName, pdf, orderNumber } = req.body;
+
+    // On vérifie que les données essentielles sont présentes
+    if (!customerEmail || !customerName || !pdf || !orderNumber) {
+      return res.status(400).json({ message: 'Données manquantes dans la requête.' });
+    }
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -22,34 +35,34 @@ const handler = async (req, res) => {
       },
     });
 
-    const adminMailOptions = {
+    // Email pour l'admin
+    await transporter.sendMail({
       from: `"Nouvelle Commande" <${process.env.EMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `Nouvelle commande #${orderNumber} de ${customerName}`,
-      html: `<p>Nouvelle commande de <b>${customerName}</b> (${customerEmail}).</p><p>Numéro: <b>${orderNumber}</b>.</p><p>PDF en pièce jointe.</p>`,
+      html: `<p>Commande de <b>${customerName}</b> (${customerEmail}). PDF en pièce jointe.</p>`,
       attachments: [{
         filename: `commande_${orderNumber}.pdf`,
         content: pdf.split('base64,')[1],
         encoding: 'base64',
       }],
-    };
-    await transporter.sendMail(adminMailOptions);
+    });
 
-    const customerMailOptions = {
+    // Email pour le client
+    await transporter.sendMail({
       from: `"SAP GK Groupe" <${process.env.EMAIL_USER}>`,
       to: customerEmail,
       subject: `Confirmation de votre commande #${orderNumber}`,
-      html: `<p>Bonjour ${customerName},</p><p>Merci pour votre commande ! Votre numéro de confirmation est : <strong>${orderNumber}</strong>.</p><p>Cordialement,<br>L'équipe SAP GK Groupe</p>`,
-    };
-    await transporter.sendMail(customerMailOptions);
+      html: `<p>Bonjour ${customerName},</p><p>Merci pour votre commande ! Votre numéro de confirmation est : <strong>${orderNumber}</strong>.</p>`,
+    });
 
-    return send(res, 200, { success: true, message: 'Emails envoyés avec succès' });
+    return res.status(200).json({ success: true, message: 'Emails envoyés.' });
 
   } catch (error) {
-    console.error('ERREUR API:', error);
-    return send(res, 500, { success: false, message: 'Une erreur interne est survenue.' });
+    // Log de l'erreur côté serveur pour le débogage sur Vercel
+    console.error('--- ERREUR CRITIQUE DANS LA FONCTION API ---');
+    console.error(error);
+    console.error('-------------------------------------------');
+    return res.status(500).json({ success: false, message: 'Erreur interne du serveur.' });
   }
 };
-
-// On exporte notre handler encapsulé par le middleware CORS
-module.exports = cors(handler);
