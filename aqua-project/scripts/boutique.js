@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // *** CORRECTION APPLIQUÉE ICI ***
             // On envoie la requête à l'adresse du serveur Node.js sur le port 3000
-            const response = await fetch('http://localhost:3000/api/send-order-email', {
+            const response = await fetch('https://aqua-project-xyz.vercel.app/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
