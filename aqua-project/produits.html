@@ -16,8 +16,10 @@
     <link rel="stylesheet" href="styles/products.css">
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <!-- Le script boutique.js est appelé en fin de body pour une meilleure performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="scripts/boutique.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+
 </head>
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
@@ -107,7 +109,7 @@
         </section>
 
         <!-- Section 2 : Boutique en Ligne Dynamique -->
-        <section class="section" style="background-color: var(--bg-white);">
+        <section class="section products-section">
             <div class="container">
                 <h2 class="section-title">Notre Boutique en Ligne</h2>
                 <div class="products-filter">
@@ -143,14 +145,14 @@
     </footer>
     
     <!-- MODALS & SIDEBARS -->
-    <div class="product-modal" id="product-modal"> <!-- Modal pour voir les détails du produit -->
+    <div class="product-modal" id="product-modal">
         <div class="modal-content">
             <button class="close-modal" aria-label="Fermer">&times;</button>
             <div class="modal-body" id="modal-body-content"></div>
         </div>
     </div>
     
-    <div class="cart-sidebar" id="cart-sidebar"> <!-- Panier latéral -->
+    <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header"><h3>Votre Panier</h3><button class="close-cart" id="close-cart-btn" aria-label="Fermer le panier">&times;</button></div>
         <div class="cart-items" id="cart-items-container"></div>
         <div class="cart-footer">
@@ -160,20 +162,49 @@
     </div>
     <div class="cart-overlay" id="cart-overlay"></div>
     
-    <div class="order-modal" id="order-modal"> <!-- Modal pour finaliser la commande -->
+    <div class="order-modal" id="order-modal">
         <div class="modal-content">
             <button class="close-modal" id="close-order-modal" aria-label="Fermer">&times;</button>
             <h3>Finaliser votre commande</h3>
             <div class="order-summary" id="order-summary"></div>
-            <form id="order-form">
+            
+            <!-- Le formulaire (sera caché après succès) -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="order-form">
+                <input type="hidden" name="access_key" value="4b66bb15-10d8-4051-aa77-40579bef9ed1">
+                <input type="hidden" name="subject" value="Nouvelle Commande SAP GK GROUPE">
+                <input type="hidden" name="from_name" value="Site Web SAP GK Groupe">
+                <input type="hidden" name="[Détails de la commande]" id="commande_details">
+                <input type="hidden" name="[Total de la commande]" id="commande_total">
                 <p>Veuillez compléter vos informations pour valider.</p>
-                <div class="form-group"><label for="customer-name">Nom complet</label><input type="text" id="customer-name" required></div>
-                <div class="form-group"><label for="customer-phone">Numéro de téléphone</label><input type="tel" id="customer-phone" required></div>
-                <div class="form-group"><label for="customer-email">Adresse e-mail</label><input type="email" id="customer-email" required></div>
-                <button type="submit" class="btn btn-primary w-100" id="submit-order-btn"><span class="btn-text">Confirmer et envoyer</span><span class="spinner"></span></button>
+                <div class="form-group">
+                    <label for="customer-name">Nom complet</label>
+                    <input type="text" id="customer-name" name="Nom du Client" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Numéro de téléphone</label>
+                    <input type="tel" id="customer-phone" name="Téléphone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Adresse e-mail</label>
+                    <input type="email" id="customer-email" name="Email du Client" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" id="submit-order-btn">
+                    <span class="btn-text">Confirmer et envoyer</span>
+                    <span class="spinner"></span>
+                </button>
             </form>
+
+            <!-- Le message de succès (caché par défaut) -->
+            <div id="order-success" class="order-success">
+                <h4 class="order-success-title">Commande envoyée !</h4>
+                <p>Merci, nous avons bien reçu votre commande. Un email de confirmation vous a été envoyé.</p>
+                <a href="#" id="whatsapp-btn" class="btn btn-primary whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Notifier sur WhatsApp
+                </a>
+                <p class="order-close-note">Vous pouvez maintenant fermer cette fenêtre.</p>
+            </div>
         </div>
     </div>
-    <script src="scripts/boutique.js"></script>
+    
 </body>
 </html>
