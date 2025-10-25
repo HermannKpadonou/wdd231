@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="GK Groupe Sarl">
-    <meta name="description" content="Découvrez notre station agro-piscicole moderne à Aboisso, spécialisée dans l'élevage de silure et tilapia.">
+    <meta name="description" content="Découvrez notre station agro-piscicole moderne à Aboisso, spécialisée dans l'élevage de silure et tilapia en bacs hors-sol.">
     <meta name="keywords" content="station piscicole Aboisso, élevage silure, aquaculture Côte d'Ivoire, visite ferme piscicole">
     <meta property="og:title" content="Notre Station | SAP GK Groupe">
     <meta property="og:description" content="Visite de notre station agro-piscicole moderne à Aboisso.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="https://www.sapgkgroupe.com/station.html">
     <meta name="theme-color" content="#0A1841">
     
     <!-- Polices Google Fonts -->
@@ -20,6 +20,10 @@
     <!-- Icônes Font Awesome -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Liens pour la galerie Lightbox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
+    
 
     <!-- Lien vers la feuille de style externe -->
     <link rel="stylesheet" href="styles/main.css">
@@ -35,11 +39,13 @@
     
     <header id="header">
         <div class="header-container">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo_simple.png" alt="logo de SAP GK Groupe">
-                <h1>SAP GK Groupe</h1>
-                <p>Station Agro-Piscicole</p>
-            </div>
+                <div>
+                    <h1>SAP GK Groupe</h1>
+                    <p>Station Agro-Piscicole</p>
+                </div>
+            </a>
             <button class="menu-toggle" aria-label="Ouvrir le menu">
                 <i class="fas fa-bars"></i>
             </button>
@@ -57,7 +63,7 @@
 
     <main id="main-content">
         <!-- Section Héro Station -->
-        <section class="page-hero">
+        <section class="page-hero hero-station">
             <div class="container">
                 <h1>Notre Station</h1>
                 <p>Découvrez notre installation moderne dédiée à l'élevage de silure et tilapia</p>
@@ -92,58 +98,7 @@
                         </div>
                     </div>
                     <div class="presentation-image">
-                        <img src="images/station-exterieur.jpg" alt="Vue extérieure de la station SAP GK Groupe">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Équipements -->
-        <section class="equipments">
-            <div class="container">
-                <h2 class="section-title">Nos Équipements Modernes</h2>
-                <div class="equipments-grid">
-                    <div class="equipment-card">
-                        <div class="equipment-image">
-                            <img src="images/bassins-hors-sol.jpg" alt="Bassins hors-sol pour l'élevage">
-                        </div>
-                        <div class="equipment-content">
-                            <h3>Bassins Hors-Sol</h3>
-                            <p>Nos bassins en matériaux composites permettent un contrôle précis des conditions d'élevage et une meilleure gestion sanitaire.</p>
-                            <ul>
-                                <li>Capacité unitaire : 10 m³</li>
-                                <li>Système de drainage intégré</li>
-                                <li>Contrôle permanent de la qualité d'eau</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="equipment-image">
-                            <img src="images/systeme-filtration.jpg" alt="Système de filtration de l'eau">
-                        </div>
-                        <div class="equipment-content">
-                            <h3>Système de Filtration</h3>
-                            <p>Un système de filtration performant garantit une eau de qualité optimale pour la santé et la croissance des poissons.</p>
-                            <ul>
-                                <li>Filtration mécanique et biologique</li>
-                                <li>Recyclage de l'eau pour une consommation réduite</li>
-                                <li>Contrôle automatisé des paramètres</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="equipment-image">
-                            <img src="images/laboratoire-controle.jpg" alt="Laboratoire de contrôle qualité">
-                        </div>
-                        <div class="equipment-content">
-                            <h3>Laboratoire de Contrôle</h3>
-                            <p>Notre laboratoire nous permet de monitorer en permanence la qualité de l'eau et la santé de nos poissons.</p>
-                            <ul>
-                                <li>Analyses physico-chimiques quotidiennes</li>
-                                <li>Détection précoce des problèmes sanitaires</li>
-                                <li>Optimisation de l'alimentation</li>
-                            </ul>
-                        </div>
+                        <img src="images/installation.jpg" alt="Vue extérieure de la station piscicole SAP GK Groupe avec ses bâtiments et installations.">
                     </div>
                 </div>
             </div>
@@ -155,30 +110,22 @@
                 <h2 class="section-title">Notre Processus de Production</h2>
                 <div class="process-steps">
                     <div class="process-step">
-                        <div class="step-icon">
-                            <i class="fas fa-egg"></i>
-                        </div>
+                        <div class="step-icon"><i class="fas fa-egg"></i></div>
                         <h3>Reproduction</h3>
                         <p>Sélection des reproducteurs et incubation des œufs dans des conditions contrôlées.</p>
                     </div>
                     <div class="process-step">
-                        <div class="step-icon">
-                            <i class="fas fa-fish"></i>
-                        </div>
+                        <div class="step-icon"><i class="fas fa-fish"></i></div>
                         <h3>Élevage des Alevins</h3>
                         <p>Croissance des alevins dans des nurseries avec alimentation spécifique et suivi sanitaire rigoureux.</p>
                     </div>
                     <div class="process-step">
-                        <div class="step-icon">
-                            <i class="fas fa-weight"></i>
-                        </div>
+                        <div class="step-icon"><i class="fas fa-weight"></i></div>
                         <h3>Engraissement</h3>
                         <p>Développement des poissons dans les bassins de grossissement avec une alimentation optimisée.</p>
                     </div>
                     <div class="process-step">
-                        <div class="step-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
+                        <div class="step-icon"><i class="fas fa-check-circle"></i></div>
                         <h3>Contrôle Qualité</h3>
                         <p>Vérification finale avant la commercialisation pour garantir des produits de première qualité.</p>
                     </div>
@@ -186,56 +133,36 @@
             </div>
         </section>
 
-        <!-- Section Chiffres Clés -->
-        <section class="key-numbers">
+        <!-- Section Galerie de la Station -->
+        <section class="station-gallery">
             <div class="container">
-                <h2 class="section-title">Chiffres Clés</h2>
-                <div class="numbers-grid">
-                    <div class="number-item">
-                        <div class="number" data-count="10000">0</div>
-                        <div class="number-label">Alevins produits/mois</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number" data-count="5000">0</div>
-                        <div class="number-label">Kg de poisson/mois</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number" data-count="12">0</div>
-                        <div class="number-label">Bassins de production</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number" data-count="3">0</div>
-                        <div class="number-label">Ans d'expérience</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Visite Virtuelle -->
-        <section class="virtual-tour">
-            <div class="container">
-                <h2 class="section-title">Visitez Notre Station</h2>
-                <div class="tour-content">
-                    <div class="tour-text">
-                        <h3>Découvrez notre installation en images</h3>
-                        <p>Nous vous proposons de découvrir les coulisses de notre production à travers cette visite virtuelle de notre station.</p>
-                        <p>Vous pourrez voir nos différentes installations, nos méthodes de travail et comprendre comment nous garantissons la qualité de nos produits.</p>
-                        <a href="contact.html" class="btn btn-primary">Réserver une visite réelle</a>
-                    </div>
-                    <div class="tour-gallery">
-                        <div class="gallery-item">
-                            <img src="images/station-bassins.jpg" alt="Bassins de production">
-                            <p>Bassins de production</p>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/station-nurserie.jpg" alt="Nurserie pour alevins">
-                            <p>Nurserie pour alevins</p>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="images/station-alimentation.jpg" alt="Système d'alimentation">
-                            <p>Système d'alimentation</p>
-                        </div>
-                    </div>
+                <h2 class="section-title">Visitez Notre Station en Images</h2>
+                <p class="text-center" style="max-width: 700px; margin: -2rem auto 3rem auto;">Cliquez sur une image pour l'agrandir. N'hésitez pas à nous <a href="contact.html" class="text-link">contacter</a> pour organiser une visite réelle de nos installations.</p>
+                <div class="gallery-grid" id="gallery-grid">
+                    <a href="images/station-bassins.jpg" class="gallery-item">
+                        <img src="images/station-bassins.jpg" alt="Vue d'ensemble des bassins de production">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Bassins de production</div>
+                    </a>
+                    <a href="images/station-nurserie.jpg" class="gallery-item">
+                        <img src="images/station-nurserie.jpg" alt="Nurserie pour les alevins en phase de démarrage">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Nurserie pour alevins</div>
+                    </a>
+                    <a href="images/station-alimentation.jpg" class="gallery-item">
+                        <img src="images/station-alimentation.jpg" alt="Système d'alimentation automatique des poissons">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Système d'alimentation</div>
+                    </a>
+                    <a href="images/bassins-hors-sol.jpg" class="gallery-item">
+                        <img src="images/bassins-hors-sol.jpg" alt="Vue rapprochée d'un bassin hors-sol">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Bassins Hors-Sol</div>
+                    </a>
+                    <a href="images/systeme-filtration.jpg" class="gallery-item">
+                        <img src="images/systeme-filtration.jpg" alt="Équipement du système de filtration de l'eau">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Système de Filtration</div>
+                    </a>
+                    <a href="images/laboratoire-controle.jpg" class="gallery-item">
+                        <img src="images/laboratoire-controle.jpg" alt="Laboratoire pour le contrôle de la qualité de l'eau">
+                        <div class="gallery-caption"><i class="fas fa-search-plus"></i> Laboratoire de Contrôle</div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -257,22 +184,20 @@
             <div class="footer-logo">
                 <h4>SAP GK Groupe</h4>
                 <p>Production, Transformation et Commercialisation de Silure et Tilapia</p>
-                
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
             <div class="footer-contact">
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Aboisso, Côte d'Ivoire</p>
-                <p><i class="fas fa-phone"></i> 27 34 75 58 23</p>
-                <p><i class="fas fa-mobile-alt"></i> 05 05 25 32 09</p>
-                <p><i class="fas fa-envelope"></i> contact@sapgkgroupe.com</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+2252734755823">27 34 75 58 23</a></p>
+                <p><i class="fas fa-mobile-alt"></i> <a href="tel:+2250505253209">05 05 25 32 09</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@sapgkgroupe.com">contact@sapgkgroupe.com</a></p>
             </div>
             
             <div class="footer-links">
@@ -286,13 +211,18 @@
                 </ul>
             </div>
             
+           
+            
             <div class="footer-bottom">
                 <p><strong>STATION AGRO-PISCICOLE GK GROUPE</strong> - Sarl</p>
                 <p><strong>Registre de Commerce :</strong> CI-ABS-01-2025-B12-00029</p>
-                <p>&copy;<span id="currentYear"></span> | Aboisso, Côte d'Ivoire</p>
+                <p>&copy; <span id="currentYear"></span> SAP GK Groupe | Aboisso, Côte d'Ivoire</p>
                 <p>Dernière Modification : <span id="lastModified"></span></p>
             </div>
         </div>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="scripts/gallery.js" defer></script>
 </body>
 </html>

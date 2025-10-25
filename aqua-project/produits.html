@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Produits & Tarifs - SAP GK GROUPE</title>
-    <meta name="description" content="Découvrez nos tarifs et notre boutique en ligne : alevins, silures, tilapias et produits transformés. Qualité garantie.">
-    
+    <title>Nos Produits & Tarifs | SAP GK Groupe</title>
+    <meta name="description" content="Découvrez nos tarifs et notre boutique en ligne : alevins, silures, tilapias et produits transformés. Qualité garantie chez SAP GK Groupe.">
+    <meta name="keywords" content="prix alevins, acheter silure, tilapia Côte d'Ivoire, poisson fumé, boutique pisciculture">
+    <meta property="og:title" content="Nos Produits & Tarifs | SAP GK Groupe">
+    <meta property="og:description" content="Achetez nos alevins, silures et tilapias directement depuis notre boutique en ligne.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sapgkgroupe.com/produits.html">
+    <meta name="theme-color" content="#0A1841">
+
     <!-- Favicon, Polices et Icônes -->
-    <link rel="icon" href="images/logo_simple.png" type="image/png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,9 +22,8 @@
     <link rel="stylesheet" href="styles/products.css">
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script src="scripts/boutique.js" defer></script>
-    <script src="scripts/date.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 
 </head>
 <body>
@@ -29,20 +34,21 @@
             <a href="index.html" class="logo">
                 <img src="images/logo_simple.png" alt="Logo SAP GK GROUPE">
                 <div>
-                    <h1>SAP GK GROUPE</h1>
-                    <p>Innovation Aquacole & Développement Durable</p>
+                    <h1>SAP GK Groupe</h1>
+                    <p>Station Agro-Piscicole</p>
                 </div>
             </a>
             <button class="menu-toggle" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="produits.html" class="current">Produits</a></li>
+                    <li><a href="produits.html" class="current">Nos Produits</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="station.html">Notre Station</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <!-- MISE À JOUR DU PANIER -->
                     <li>
-                        <a href="#" id="cart-icon" class="cart-icon" aria-label="Ouvrir le panier">
+                        <a href="#" id="cart-icon" class="cart-link" aria-label="Ouvrir le panier">
                             <i class="fas fa-shopping-cart"></i>
                             <span id="cart-counter">0</span>
                         </a>
@@ -52,18 +58,18 @@
         </div>
     </header>
     
-    <section class="page-hero products-hero">
-        <div class="container">
-            <h1>Nos Produits & Tarifs</h1>
-            <p>Découvrez notre gamme complète de produits aquacoles de qualité exceptionnelle</p>
-        </div>
-    </section>
-    
     <main id="main-content">
+        <section class="page-hero hero-produits">
+            <div class="container">
+                <h1>Nos Produits & Tarifs</h1>
+                <p>Découvrez notre gamme complète de produits aquacoles de qualité exceptionnelle</p>
+            </div>
+        </section>
+        
         <!-- Section 1 : Grille Tarifaire Statique -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Grille Tarifaire</h2>
+                <h2 class="section-title">Grille Tarifaire Indicative</h2>
                 <div class="tarifs-table-container">
                     <table class="tarifs-table">
                         <thead>
@@ -76,28 +82,28 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Alevins de silure</td>
-                                <td>Taille 2-3 cm</td>
-                                <td>50 / unité</td>
-                                <td>Lot de 1000</td>
+                                <td data-label="Produit">Alevins de silure</td>
+                                <td data-label="Description">Taille 2-3 cm</td>
+                                <td data-label="Prix">50 / unité</td>
+                                <td data-label="Conditionnement">Lot de 1000</td>
                             </tr>
                             <tr>
-                                <td>Silure marchand</td>
-                                <td>Poids 800g-1.2kg</td>
-                                <td>2000 / kg</td>
-                                <td>Pièce ou en lot</td>
+                                <td data-label="Produit">Silure marchand</td>
+                                <td data-label="Description">Poids 800g-1.2kg</td>
+                                <td data-label="Prix">2000 / kg</td>
+                                <td data-label="Conditionnement">À la pièce ou en lot</td>
                             </tr>
                              <tr>
-                                <td>Tilapia rouge</td>
-                                <td>Poids 500g-800g</td>
-                                <td>2500 / kg</td>
-                                <td>Pièce ou en lot</td>
+                                <td data-label="Produit">Tilapia rouge</td>
+                                <td data-label="Description">Poids 500g-800g</td>
+                                <td data-label="Prix">2500 / kg</td>
+                                <td data-label="Conditionnement">À la pièce ou en lot</td>
                             </tr>
                             <tr>
-                                <td>Filets de silure</td>
-                                <td>Surgelés</td>
-                                <td>3000 / kg</td>
-                                <td>Sachets de 500g</td>
+                                <td data-label="Produit">Filets de silure</td>
+                                <td data-label="Description">Surgelés</td>
+                                <td data-label="Prix">3000 / kg</td>
+                                <td data-label="Conditionnement">Sachets de 500g</td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,17 +115,17 @@
         </section>
 
         <!-- Section 2 : Boutique en Ligne Dynamique -->
-        <section class="section products-section">
+        <section class="section products-section" style="background-color: var(--bg-light);">
             <div class="container">
                 <h2 class="section-title">Notre Boutique en Ligne</h2>
                 <div class="products-filter">
                     <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="poissons">Poissons Vivants</button>
+                    <button class="filter-btn" data-filter="poissons">Poissons & Alevins</button>
                     <button class="filter-btn" data-filter="transformes">Produits Transformés</button>
                     <button class="filter-btn" data-filter="services">Services</button>
                 </div>
                 <div class="products-grid" id="products-grid">
-                    <p>Chargement des produits...</p>
+                    <p class="text-center">Chargement des produits...</p>
                 </div>
             </div>
         </section>
@@ -129,7 +135,7 @@
                 <div class="cta-content">
                     <h2>Prêt à commander ou besoin de conseils ?</h2>
                     <p>Notre équipe est à votre disposition pour vous accompagner dans votre projet.</p>
-                    <a href="contact.html" class="btn btn-white">Nous contacter</a>
+                    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
                 </div>
             </div>
         </section>
@@ -137,10 +143,44 @@
     
     <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-logo"><h4>SAP GK GROUPE</h4><p>Innovation Aquacole & Développement Durable</p></div>
-            <div class="footer-contact"><h4>Contact</h4><p><i class="fas fa-phone"></i> 27 34 75 58 23 / 05 05 25 32 09</p><p><i class="fas fa-envelope"></i> contact@sapgkgroupe.com</p></div>
-            <div class="footer-links"><h4>Liens rapides</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a href="services.html">Services</a></li></ul></div>
-            <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> SAP GK GROUPE. Tous droits réservés.</p><p>Dernière Modification : <span id="lastModified"></span></p></div>
+            <div class="footer-logo">
+                <h4>SAP GK Groupe</h4>
+                <p>Production, Transformation et Commercialisation de Silure et Tilapia</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Aboisso, Côte d'Ivoire</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+2252734755823">27 34 75 58 23</a></p>
+                <p><i class="fas fa-mobile-alt"></i> <a href="tel:+2250505253209">05 05 25 32 09</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@sapgkgroupe.com">contact@sapgkgroupe.com</a></p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="station.html">Notre Station</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+           
+            
+            <div class="footer-bottom">
+                <p><strong>STATION AGRO-PISCICOLE GK GROUPE</strong> - Sarl</p>
+                <p><strong>Registre de Commerce :</strong> CI-ABS-01-2025-B12-00029</p>
+                <p>&copy; <span id="currentYear"></span> SAP GK Groupe | Aboisso, Côte d'Ivoire</p>
+                <p>Dernière Modification : <span id="lastModified"></span></p>
+            </div>
         </div>
     </footer>
     
@@ -148,63 +188,66 @@
     <div class="product-modal" id="product-modal">
         <div class="modal-content">
             <button class="close-modal" aria-label="Fermer">&times;</button>
-            <div class="modal-body" id="modal-body-content"></div>
+            <div class="modal-body" id="modal-body-content"><!-- Contenu injecté par JS --></div>
         </div>
     </div>
     
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header"><h3>Votre Panier</h3><button class="close-cart" id="close-cart-btn" aria-label="Fermer le panier">&times;</button></div>
-        <div class="cart-items" id="cart-items-container"></div>
+    <aside class="cart-sidebar" id="cart-sidebar" aria-labelledby="cart-heading">
+        <div class="cart-header">
+            <h3 id="cart-heading">Votre Panier</h3>
+            <button class="close-cart" id="close-cart-btn" aria-label="Fermer le panier">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items-container"><!-- Contenu injecté par JS --></div>
         <div class="cart-footer">
             <div class="cart-total"><span>Total:</span><span id="cart-total-price">0 FCFA</span></div>
-            <button id="process-order-btn" class="btn btn-primary">Passer la commande</button>
+            <button id="process-order-btn" class="btn btn-primary w-100">Passer la commande</button>
         </div>
-    </div>
+    </aside>
     <div class="cart-overlay" id="cart-overlay"></div>
     
+    <!-- MISE À JOUR DU MODAL DE COMMANDE -->
     <div class="order-modal" id="order-modal">
         <div class="modal-content">
-            <button class="close-modal" id="close-order-modal" aria-label="Fermer">&times;</button>
-            <h3>Finaliser votre commande</h3>
-            <div class="order-summary" id="order-summary"></div>
+            <div class="modal-header">
+                <h3>Finaliser votre commande</h3>
+                <button class="close-modal" id="close-order-modal" aria-label="Fermer">&times;</button>
+            </div>
             
-            <!-- Le formulaire (sera caché après succès) -->
-            <form action="https://api.web3forms.com/submit" method="POST" id="order-form">
-                <input type="hidden" name="access_key" value="4b66bb15-10d8-4051-aa77-40579bef9ed1">
-                <input type="hidden" name="subject" value="Nouvelle Commande SAP GK GROUPE">
-                <input type="hidden" name="from_name" value="Site Web SAP GK Groupe">
-                <input type="hidden" name="[Détails de la commande]" id="commande_details">
-                <input type="hidden" name="[Total de la commande]" id="commande_total">
-                <p>Veuillez compléter vos informations pour valider.</p>
-                <div class="form-group">
-                    <label for="customer-name">Nom complet</label>
-                    <input type="text" id="customer-name" name="Nom du Client" required>
-                </div>
-                <div class="form-group">
-                    <label for="customer-phone">Numéro de téléphone</label>
-                    <input type="tel" id="customer-phone" name="Téléphone" required>
-                </div>
-                <div class="form-group">
-                    <label for="customer-email">Adresse e-mail</label>
-                    <input type="email" id="customer-email" name="Email du Client" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100" id="submit-order-btn">
-                    <span class="btn-text">Confirmer et envoyer</span>
-                    <span class="spinner"></span>
-                </button>
-            </form>
+            <div class="modal-scroll-content">
+                <div class="order-summary" id="order-summary"><!-- Contenu injecté par JS --></div>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" id="order-form">
+                    <input type="hidden" name="access_key" value="4b66bb15-10d8-4051-aa77-40579bef9ed1">
+                    <input type="hidden" name="subject" value="Nouvelle Commande depuis le site SAP GK GROUPE">
+                    <input type="hidden" name="from_name" value="Site Web SAP GK Groupe">
+                    <input type="hidden" name="Détails de la commande" id="commande_details">
+                    <input type="hidden" name="Total de la commande" id="commande_total">
+                    <p>Veuillez compléter vos informations pour que nous puissions vous recontacter et valider la commande.</p>
+                    <div class="form-group">
+                        <label for="customer-name">Nom complet *</label>
+                        <input type="text" id="customer-name" name="Nom du Client" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">Numéro de téléphone *</label>
+                        <input type="tel" id="customer-phone" name="Téléphone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Adresse e-mail</label>
+                        <input type="email" id="customer-email" name="Email du Client">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" id="submit-order-btn">
+                        <span class="btn-text">Confirmer et envoyer</span>
+                        <span class="spinner"></span>
+                    </button>
+                </form>
 
-            <!-- Le message de succès (caché par défaut) -->
-            <div id="order-success" class="order-success">
-                <h4 class="order-success-title">Commande envoyée !</h4>
-                <p>Merci, nous avons bien reçu votre commande. Un email de confirmation vous a été envoyé.</p>
-                <a href="#" id="whatsapp-btn" class="btn btn-primary whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Notifier sur WhatsApp
-                </a>
-                <p class="order-close-note">Vous pouvez maintenant fermer cette fenêtre.</p>
+                <div id="order-success" class="order-success" style="display: none;">
+                    <h4 class="order-success-title">Demande envoyée !</h4>
+                    <p>Merci, nous avons bien reçu votre demande de commande. Nous vous contacterons très prochainement par téléphone pour la confirmer.</p>
+                    <p class="order-close-note">Vous pouvez maintenant fermer cette fenêtre.</p>
+                </div>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

@@ -1,0 +1,62 @@
+[
+    { 
+        "id": 1, 
+        "name": "Alevins de Tilapia", 
+        "category": "poissons", 
+        "price": 350, 
+        "unit": "/unité", 
+        "originalPrice": 500, 
+        "image": "images/ALEVIN.jpg", 
+        "description": "Alevins de tilapia robustes, parfaits pour démarrer votre élevage.", 
+        "details": { "Taille": "2-3 cm", "Âge": "21 jours", "Espèce": "Tilapia" } 
+    },
+    { 
+        "id": 2, 
+        "name": "Alevins de Silure", 
+        "category": "poissons", 
+        "price": 450, 
+        "unit": "/unité", 
+        "image": "images/silure.jpg", 
+        "description": "Jeunes silures de qualité supérieure, prêts pour le grossissement.", 
+        "details": { "Taille": "5-7 cm", "Âge": "30 jours", "Espèce": "Silure" } 
+    },
+    { 
+        "id": 3, 
+        "name": "Tilapia Rouge Marchand", 
+        "category": "poissons", 
+        "price": 2500, 
+        "unit": "/kg", 
+        "image": "images/poissonrouge.jpg", 
+        "description": "Tilapia rouge frais de première qualité, élevé dans nos bassins.", 
+        "details": { "Poids": "400-600 g", "Origine": "Élevage local" } 
+    },
+    { 
+        "id": 4, 
+        "name": "Filets de Silure Fumés", 
+        "category": "transformes", 
+        "price": 3500, 
+        "unit": "/kg", 
+        "image": "images/filets.jpg", 
+        "description": "Filets de silure fumés artisanalement, sans arêtes et riches en goût.", 
+        "details": { "Conservation": "Fumé", "Poids": "Sachets de 500g" } 
+    },
+    { 
+        "id": 5, 
+        "name": "Conseil en Aquaculture", 
+        "category": "services", 
+        "price": "Sur devis", 
+        "image": "images/conseil.jpg", 
+        "description": "Services experts pour concevoir, lancer et optimiser votre production.", 
+        "details": { "Expertise": "Pisciculture intensive", "Type": "Étude, suivi" } 
+    },
+    { 
+        "id": 6, 
+        "name": "Formation Aquacole", 
+        "category": "services", 
+        "price": 150000, 
+        "unit": "/pers.", 
+        "image": "images/formation.jpg", 
+        "description": "Programme de formation complet pour maîtriser les bases de la pisciculture.", 
+        "details": { "Durée": "5 jours", "Niveau": "Débutant" } 
+    }
+]

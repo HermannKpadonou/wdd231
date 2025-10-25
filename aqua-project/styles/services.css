@@ -227,6 +227,13 @@
     }
 }
 
+@media (min-width: 992px) {
+    .process-steps {
+        /* On force la grille à avoir 4 colonnes de taille égale */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .services-grid {
         grid-template-columns: 1fr;

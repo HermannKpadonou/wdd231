@@ -334,6 +334,84 @@
 
 .gallery-item:hover p {
     background: rgba(10, 24, 65, 0.95);
+
+
+  /* ... Tout votre code CSS existant pour la page station ... */
+
+/* ===== STATION GALLERY ===== */
+.station-gallery {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    display: block;
+    cursor: pointer;
+    height: 250px; /* Hauteur fixe pour une grille uniforme */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-slow);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 24, 65, 0.9), transparent);
+    color: var(--text-light);
+    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
+    text-align: left;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-normal);
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-caption i {
+    margin-right: var(--spacing-xs);
+}
+
+.text-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Lightbox styles */
+.basicLightbox--visible .basicLightbox__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.basicLightbox__placeholder > img {
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: var(--radius-md);
 }
 
 /* Responsive adjustments for station page */
@@ -369,5 +447,26 @@
 @media (max-width: 576px) {
     .numbers-grid {
         grid-template-columns: 1fr;
+    }
+}
+}
+
+/* ================================================= */
+/* === AJUSTEMENT MISE EN PAGE PROCESSUS PRODUCTION === */
+/* ================================================= */
+
+/* Style de base pour tous les écrans (mobile-first) */
+.production-process .process-steps {
+    display: grid;
+    gap: var(--spacing-lg);
+    /* Sur mobile, on a une seule colonne par défaut */
+    grid-template-columns: 1fr; 
+}
+
+/* À partir de 768px (tablettes et plus), on passe à une grille de 2x2 */
+@media (min-width: 768px) {
+    .production-process .process-steps {
+        /* On crée 2 colonnes de taille égale */
+        grid-template-columns: repeat(2, 1fr);
     }
 }

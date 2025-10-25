@@ -273,3 +273,58 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ======================================================= */
+/* === AJUSTEMENT RESPONSIVE POUR LES CARTES DE CONTACT === */
+/* ======================================================= */
+
+/* Pour les écrans de taille moyenne (tablettes) et plus grands */
+@media (min-width: 768px) {
+    .contact-info-grid {
+        /* On crée 2 colonnes de taille égale */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Pour les écrans larges (ordinateurs) */
+@media (min-width: 1200px) {
+    .contact-info-grid {
+        /* On passe à 4 colonnes pour un affichage optimal sur grand écran */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ======================================== */
+/* === GRILLE FORMULAIRE ET CARTE CONTACT === */
+/* ======================================== */
+
+.contact-grid {
+    display: grid;
+    /* Par défaut (mobile), une seule colonne */
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center; /* Centre les éléments verticalement */
+}
+
+/* À partir de 992px (écrans larges), on passe à deux colonnes */
+@media (min-width: 992px) {
+    .contact-grid {
+        /* On crée 2 colonnes : la carte prend 1 part, le formulaire 1.2 part (un peu plus grand) */
+        /* Vous pouvez changer ces valeurs, par ex. "1fr 1fr" pour 50/50 */
+        grid-template-columns: 1.2fr 1fr; 
+    }
+}
+
+/* Styles pour que la carte prenne toute la hauteur de la colonne */
+.map-container {
+    height: 100%;
+    min-height: 500px; /* Hauteur minimale sur mobile */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .map-container {
+        min-height: 0; /* On retire la hauteur minimale sur grand écran */
+    }
+}

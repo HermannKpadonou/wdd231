@@ -290,7 +290,7 @@ header {
 
 header.scrolled {
     padding: 0.5rem 0;
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
     background-color: rgba(10, 24, 65, 0.95);
 }
 
@@ -390,17 +390,59 @@ nav a.current::after {
     width: 80%;
 }
 
+
+/* ===== CORRECTION PANIER HEADER ===== */
+
+/* Style du lien contenant l'icône du panier pour qu'il s'intègre au menu */
+.cart-link {
+    position: relative; /* Indispensable pour positionner le compteur */
+    display: inline-block;
+    font-size: 1.2rem; /* Agrandit un peu l'icône */
+    padding: var(--spacing-xs) !important;
+}
+
+/* Positionnement et style du compteur de panier */
+#cart-counter {
+    position: absolute;
+    top: -2px;       /* Ajustez pour monter/descendre */
+    right: -5px;     /* Ajustez pour aller à gauche/droite */
+    background-color: var(--accent-red);
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary); /* Ajoute un petit contour */
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+/* Petite animation quand un article est ajouté */
+#cart-counter.updated {
+    transform: scale(1.3);
+}
+
+/* Cache le compteur s'il est vide (géré par JS, mais c'est une sécurité) */
+#cart-counter:empty,
+#cart-counter:contains('0') {
+    display: none;
+}
 /* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(135deg, rgba(10, 24, 65, 0.9) 0%, rgba(239, 71, 59, 0.7) 100%), url('../images/poisson-iuy.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(10, 24, 65, 0.9) 0%, rgba(239, 71, 59, 0.7) 100%), url('../images/carpe.jpg') center/cover no-repeat;
     color: var(--text-light);
     text-align: center;
     padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
     overflow: hidden;
 }
 
@@ -436,38 +478,63 @@ nav a.current::after {
     font-weight: 300;
 }
 
-/* ===== PAGE HERO (inner pages) ===== */
+/* =========================================== */
+/* === MISE À JOUR BANNIÈRES (PAGE HERO) === */
+/* =========================================== */
+
 .page-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-blue) 100%),url('../images/poisson-iuy.jpg') center/cover no-repeat;
+    position: relative; /* Indispensable pour la superposition */
     color: var(--text-light);
     text-align: center;
     padding: calc(80px + var(--spacing-lg)) 0 var(--spacing-xl);
-    position: relative;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    
+    /* On définit les propriétés de l'image de fond ici */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
+/* On crée la superposition de couleur via un pseudo-élément */
 .page-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    right: 0;
+    bottom: 0;
+    /* Le dégradé de couleur est maintenant ici, avec une opacité */
+    background: linear-gradient(135deg, rgba(10, 24, 65, 0.85) 0%, rgba(44, 164, 212, 0.75) 100%);
+    z-index: 1; /* Se place entre le fond et le texte */
 }
 
-.page-hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: var(--spacing-sm);
+/* On s'assure que le contenu (titre, paragraphe) est bien au-dessus de la superposition */
+.page-hero .container {
     position: relative;
+    z-index: 2;
 }
 
-.page-hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+/* 
+   Maintenant, on assigne une image de fond différente à chaque classe
+   (en utilisant des images que vous avez déjà)
+*/
+
+.hero-produits {
+    background-image: url('../images/poisson-jump.jpg');
+}
+
+.hero-services {
+    background-image: url('../images/pecheur.jpg');
+    background-position: center 30%; /* On peut ajuster la position si besoin */
+}
+
+.hero-station {
+    background-image: url('../images/piscicole.jpg');
+}
+
+.hero-contact {
+    background-image: url('../images/poisson_saut.jpg');
 }
 
 /* ===== TESTIMONIALS SECTION ===== */
@@ -1328,6 +1395,87 @@ select:focus {
     }
 }
 
+/* ... Tout votre code CSS existant ... */
+
+/* ===== FOOTER NEWSLETTER ===== */
+.footer-newsletter {
+    text-align: left;
+}
+
+.footer-newsletter h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-bottom: 8px;
+    color: var(--text-light);
+}
+
+.footer-newsletter h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--accent-red);
+}
+
+.footer-newsletter p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+}
+
+#mc_embed_signup form {
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+#mc_embed_signup input.email {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    outline: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+#mc_embed_signup input.button {
+    padding: 12px 16px;
+    background-color: var(--accent-red);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-normal);
+    white-space: nowrap;
+}
+
+#mc_embed_signup input.button:hover {
+    background-color: #c11a26;
+}
+
+@media(max-width: 1200px) {
+    .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+
+@media(max-width: 992px) {
+    .footer-newsletter {
+        text-align: center;
+    }
+    .footer-newsletter h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 /* ===== IE11 FALLBACKS ===== */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .container {
@@ -1351,4 +1499,101 @@ select:focus {
     .footer-links {
         margin-bottom: 30px;
     }
+}
+
+/* ============================= */
+/* === SECTION NEWSLETTER V2 === */
+/* ============================= */
+
+.newsletter-section {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Ajout du motif de points en fond, comme le footer */
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
+}
+
+.newsletter-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px; /* Limite la largeur du contenu */
+    margin: 0 auto;
+}
+
+/* Style pour le titre de la section */
+.newsletter-section .section-title {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.newsletter-section .section-title::after {
+    background-color: var(--accent-red);
+}
+
+.newsletter-section p {
+    opacity: 0.9;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
+/* Style du formulaire vertical */
+#mc_embed_signup form {
+    display: block; /* On retire le flex pour que les éléments soient les uns sous les autres */
+}
+
+#mc_embed_signup input.email {
+    width: 80%;
+    padding: 16px;
+    border: none;
+    border-radius: var(--radius-sm); /* Bords arrondis partout */
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: center; /* Texte centré comme sur l'image */
+    margin-bottom: var(--spacing-sm);
+}
+
+#mc_embed_signup input.button {
+    width: 90%;
+    padding: 16px;
+    background-color: var(--accent-red);
+
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--radius-sm); /* Bords arrondis partout */
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    transition: var(--transition-normal);
+}
+
+#mc_embed_signup input.button:hover {
+    background-color: #c11a26;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* On supprime l'ancien style lié au footer pour éviter les conflits */
+.footer-newsletter {
+    display: none;
+}
+
+.home-page .cart-link {
+    display: none !important;
 }

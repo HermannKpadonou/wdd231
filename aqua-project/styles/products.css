@@ -126,6 +126,68 @@ body.no-scroll { overflow: hidden; }
 #submit-order-btn.loading .btn-text { visibility: hidden; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ... Tout le code CSS existant de products.css ... */
+
+/* ===== AMÉLIORATION MODAL DE COMMANDE ===== */
+
+.order-modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* Le modal ne dépassera jamais 90% de la hauteur de l'écran */
+    padding: 0; /* On retire le padding global pour mieux contrôler les zones */
+}
+
+.order-modal .modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* Empêche l'en-tête de rétrécir */
+}
+
+.order-modal .modal-header h3 {
+    margin-bottom: 0;
+}
+
+.order-modal .close-modal {
+    position: static; /* On retire la position absolue pour l'intégrer au flux */
+    transform: none;
+    font-size: 1.8rem;
+}
+
+/* C'est ici que la magie opère ! */
+.modal-scroll-content {
+    overflow-y: auto;  /* Ajoute une barre de défilement si le contenu dépasse */
+    padding: 1.5rem 2rem 2rem; /* Ajoute le padding au contenu interne */
+}
+
+/* Style pour le résumé de la commande */
+.order-summary {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.order-summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.order-summary-total {
+    font-weight: 700;
+    text-align: right;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-medium);
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
 /* Notification */
 .notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 1rem 2rem; border-radius: 5px; color: white; z-index: 3000; box-shadow: var(--shadow-lg); opacity: 0; animation: fadeInOut 4s ease-in-out; }
 .notification-success { background-color: #28a745; }
